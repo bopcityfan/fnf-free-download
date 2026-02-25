@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TextureAtlas imagePath="speaker-lights.png" width="415" height="53">
+	<SubTexture name="0" x="1" y="1" width="101" height="51" frameX="-12" frameY="-78" frameWidth="128" frameHeight="131"/>
+	<SubTexture name="1" x="105" y="1" width="101" height="51" frameX="-12" frameY="-78" frameWidth="128" frameHeight="131"/>
+	<SubTexture name="2" x="209" y="1" width="101" height="51" frameX="-12" frameY="-78" frameWidth="128" frameHeight="131"/>
+	<SubTexture name="3" x="313" y="1" width="101" height="51" frameX="-12" frameY="-78" frameWidth="128" frameHeight="131"/>
+</TextureAtlas>

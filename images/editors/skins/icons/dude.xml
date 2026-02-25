@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TextureAtlas imagePath="dude.png" width="177" height="144">
+	<SubTexture name="fav" x="61" y="76" width="54" height="40" frameX="-7" frameY="-13" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="hair" x="68" y="38" width="55" height="35" frameX="-3" frameY="-16" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="hat" x="68" y="1" width="56" height="34" frameX="-4" frameY="-15" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="pants" x="1" y="87" width="51" height="56" frameX="-7" frameY="-4" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="shirt" x="127" y="1" width="49" height="49" frameX="-9" frameY="-9" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="shoes" x="1" y="55" width="57" height="29" frameX="-3" frameY="-21" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="skin" x="1" y="1" width="64" height="51" frameX="-0" frameY="-7" frameWidth="64" frameHeight="64"/>
+	<SubTexture name="stripe" x="126" y="53" width="49" height="49" frameX="-9" frameY="-9" frameWidth="64" frameHeight="64"/>
+</TextureAtlas>

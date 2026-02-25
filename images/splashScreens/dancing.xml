@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TextureAtlas imagePath="dancing.png" width="770" height="1541">
+	<SubTexture name="dancing1" x="1" y="1" width="768" height="768" frameX="-0" frameY="-0" frameWidth="768" frameHeight="768"/>
+	<SubTexture name="dancing2" x="1" y="772" width="768" height="768" frameX="-0" frameY="-0" frameWidth="768" frameHeight="768"/>
+</TextureAtlas>

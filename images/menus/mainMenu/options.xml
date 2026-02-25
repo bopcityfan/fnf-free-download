@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TextureAtlas imagePath="options.png" width="568" height="339">
+	<SubTexture name="spr_titlewords2_0" x="1" y="1" width="184" height="167" frameX="-21" frameY="-25" frameWidth="222" frameHeight="222"/>
+	<SubTexture name="spr_titlewords2_1" x="1" y="171" width="184" height="167" frameX="-21" frameY="-25" frameWidth="222" frameHeight="222"/>
+	<SubTexture name="spr_titlewords2_2" x="188" y="1" width="184" height="167" frameX="-21" frameY="-25" frameWidth="222" frameHeight="222"/>
+	<SubTexture name="spr_titlewords2_3" x="188" y="171" width="184" height="167" frameX="-21" frameY="-25" frameWidth="222" frameHeight="222"/>
+	<SubTexture name="spr_titlewords2_4" x="375" y="1" width="192" height="146" frameX="-4" frameY="-25" frameWidth="200" frameHeight="200"/>
+	<SubTexture name="spr_titlewords2_5" x="375" y="150" width="192" height="146" frameX="-4" frameY="-27" frameWidth="200" frameHeight="200"/>
+</TextureAtlas>
