@@ -1,6 +1,7 @@
 import openfl.system.Capabilities;
 import funkin.savedata.FunkinSave;
 import funkin.backend.MusicBeatState;
+import funkin.backend.system.framerate.Framerate;
 import flixel.util.FlxSpriteUtil;
 import flixel.util.FlxGradient;
 
@@ -88,6 +89,12 @@ function preStateSwitch() {
 		initialized = true;
 		MusicBeatState.skipTransIn = MusicBeatState.skipTransOut = true;
 		FlxG.game._requestedState = FunkinSave.save.data.introSplash ? new ModState('menus/SplashScreen') : new ModState('TitleScreen');
+	}
+}
+
+function postStateSwitch() {
+	if (FunkinSave.save.data.autoHideFPS) {
+		Framerate.debugMode = 0;
 	}
 }
 
