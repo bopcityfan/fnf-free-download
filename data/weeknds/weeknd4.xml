@@ -1,11 +1,9 @@
 <!DOCTYPE free-download-weeknd>
-<weeknd name="WEEKND 4" rating="hard" index="4">
-	<composition folder="menus/storyMode">
+<weeknd name="WEEKND 4" rating="hard" index="4" color="#56EAC9">
+	<composition folder="menus/storyMode/">
 		<sprite name="banner" x="0" y="0" sprite="weeknd4" antialiasing="false"/>
 	</composition>
 
-	<songlist>
-		<song name="satellite"/>
-		<song name="starfire"/>
-	</songlist>
+	<song name="satellite"/>
+	<song name="starfire"/>
 </weeknd>

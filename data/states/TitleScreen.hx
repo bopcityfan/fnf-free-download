@@ -1,7 +1,8 @@
 import flixel.text.FlxText.FlxTextFormat;
 import flixel.text.FlxText.FlxTextFormatMarkerPair;
 import flixel.group.FlxSpriteGroup;
-import karaoke.util.ColorExtension;
+import karaoke.backend.KaraokeText;
+import karaoke.backend.utils.ColorExtension;
 
 using ColorExtension;
 
@@ -17,14 +18,14 @@ var logo:FunkinSprite;
 var finished:Bool = false;
 var transitioning:Bool = false;
 
-var splashText:FunkinText;
+var splashText:KaraokeText;
 
 var markupRules:Array<FlxTextFormatMarkerPair> = [
 	new FlxTextFormatMarkerPair(new FlxTextFormat(0xFFFF9100, true), "||") // dx format
 ];
 
 function create() {
-	var bing:FunkinSprite = new FunkinSprite().loadSprite(Paths.image('menus/bing'));
+	var bing:FunkinSprite = new FunkinSprite().loadSprite(Paths.image('menus/bing', null, true));
 	bing.alpha = 0.001;
 	bing.scale.set(2, 2);
 	bing.updateHitbox();
@@ -54,13 +55,13 @@ function create() {
 
 	titleText = titleTextArray[FlxG.random.int(0, titleTextArray.length-1)].split('--');
 
-	var bg:FunkinSprite = new FunkinSprite().loadSprite(Paths.image('menus/backgrounds/nightwalk'));
+	var bg:FunkinSprite = new FunkinSprite().loadSprite(Paths.image('menus/backgrounds/nightwalk', null, true));
 	bg.scale.set(2, 2);
 	bg.updateHitbox();
 	bg.x = FlxG.width-bg.width;
 	titleGroup.add(bg);
 
-	people = new FunkinSprite().loadSprite(Paths.image('menus/titlescreen/people'));
+	people = new FunkinSprite().loadSprite(Paths.image('menus/titlescreen/people', null, true));
 	people.addAnim('idle', 'spr_menugf_', 12, false);
 	people.addAnim('yeah', 'spr_menugfyeah', 12, false);
 	people.playAnim('idle', true);
@@ -68,25 +69,21 @@ function create() {
 	people.updateHitbox();
 	titleGroup.add(people);
 
-	logo = new FunkinSprite(0, 20).loadSprite(Paths.image('menus/titlescreen/title'));
+	logo = new FunkinSprite(0, 20).loadSprite(Paths.image('menus/titlescreen/title', null, true));
 	logo.scale.set(2, 2);
 	logo.updateHitbox();
 	logo.screenCenter(FlxAxes.X);
 	titleGroup.add(logo);
 
-	enterThingy = new FunkinSprite().loadSprite(Paths.image('menus/titlescreen/titlewords'));
+	enterThingy = new FunkinSprite().loadSprite(Paths.image('menus/titlescreen/titlewords', null, true));
 	enterThingy.scale.set(2, 2);
 	enterThingy.updateHitbox();
 	enterThingy.setPosition(5, FlxG.height-enterThingy.height-5);
 	titleGroup.add(enterThingy);
 
 	var splashTextArray:Array<String> = CoolUtil.coolTextFile(Paths.txt('titlescreen/splashtext'));
-	splashText = new FunkinText(185, logo.y + logo.height - 10, 200, splashTextArray[FlxG.random.int(0, splashTextArray.length-1)], 16, true);
+	splashText = new KaraokeText(185, logo.y + logo.height - 10, 200, splashTextArray[FlxG.random.int(0, splashTextArray.length-1)], 16, true);
 	splashText.alignment = 'center';
-	splashText.antialiasing = false;
-	// lunarcleint figured this out thank u lunar holy shit 🙏
-	splashText.textField.antiAliasType = 0; // advanced
-	splashText.textField.sharpness = 400; // max i think idk thats what it says
 	splashText.font = Paths.font("Pixellari.ttf");
 	splashText.borderSize = 2;
 	splashText.angle = -10;
@@ -175,12 +172,8 @@ function line(lines:Array<String>) {
 function newLine(lines:Array<String>) {
 	for (line in lines) {
 		var lastHeight:Float = CoolUtil.last(textGroup.members) == null ? 0 : CoolUtil.last(textGroup.members).height;
-		var text:FunkinText = new FunkinText(0, 125 + (lastHeight*(textGroup.length)), FlxG.width, line, 32, false);
+		var text:KaraokeText = new KaraokeText(0, 125 + (lastHeight*(textGroup.length)), FlxG.width, line, 32);
 		text.alignment = 'center';
-		text.antialiasing = false;
-		text.textField.antiAliasType = 0;
-		text.textField.sharpness = 400;
-		text.font = Paths.font("Pixellari.ttf");
 		textGroup.add(text);
 	}
 }

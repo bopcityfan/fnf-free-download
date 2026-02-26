@@ -1,11 +1,9 @@
 <!DOCTYPE free-download-weeknd>
-<weeknd name="WEEKND 1" rating="easy" index="1">
-	<composition folder="menus/storyMode">
+<weeknd name="WEEKND 1" rating="easy" index="1" color="#8758A3">
+	<composition folder="menus/storyMode/">
 		<sprite name="banner" x="0" y="0" sprite="weeknd1" antialiasing="false"/>
 	</composition>
 
-	<songlist>
-		<song name="summer"/>
-		<song name="stars"/>
-	</songlist>
+	<song name="summer"/>
+	<song name="stars"/>
 </weeknd>

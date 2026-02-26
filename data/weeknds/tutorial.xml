@@ -1,10 +1,8 @@
 <!DOCTYPE free-download-weeknd>
-<weeknd name="TUTORIAL" rating="easy" index="0">
-	<composition folder="menus/storyMode">
+<weeknd name="TUTORIAL" rating="easy" index="0" color="#FFFFFF">
+	<composition folder="menus/storyMode/">
 		<sprite name="banner" x="0" y="0" sprite="tutorial" antialiasing="false"/>
 	</composition>
 
-	<songlist>
-		<song name="i-robot" display="i, robot"/>
-	</songlist>
+	<song name="i-robot" display="i, robot"/>
 </weeknd>

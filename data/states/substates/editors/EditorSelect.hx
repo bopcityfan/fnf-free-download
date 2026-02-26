@@ -4,7 +4,8 @@ import funkin.editors.character.CharacterSelection;
 import funkin.editors.stage.StageSelection;
 import funkin.editors.alphabet.AlphabetEditor;
 import Type;
-import karaoke.util.ColorExtension;
+import karaoke.backend.KaraokeText;
+import karaoke.backend.utils.ColorExtension;
 
 using ColorExtension;
 
@@ -35,7 +36,7 @@ final textBrightnessUnselected:Float = 0.75;
 
 var subCam:FlxCamera;
 
-var optionSprites:Array<{bg:FunkinSprite, text:FunkinText}> = [];
+var optionSprites:Array<{bg:FunkinSprite, text:KaraokeText}> = [];
 
 var curSelected(default, set):Int = 0;
 function set_curSelected(val:Int):Int {
@@ -58,11 +59,8 @@ function create() {
 		bg.alpha = curSelected == index ? bgAlphaSelected : bgAlphaUnselected;
 		add(bg);
 
-		var text:FunkinText = new FunkinText(10, bg.y + 13, bg.width, data.name, 32, true);
+		var text:KaraokeText = new KaraokeText(10, bg.y + 13, bg.width, data.name, 32, true);
 		text.cameras = [subCam];
-		text.font = Paths.font("Pixellari.ttf");
-		text.textField.antiAliasType = 0;
-		text.textField.sharpness = 400;
 		text.borderSize = 3;
 		add(text);
 

@@ -1,6 +1,8 @@
 import openfl.system.Capabilities;
 import funkin.savedata.FunkinSave;
 import funkin.backend.MusicBeatState;
+import flixel.util.FlxSpriteUtil;
+import flixel.util.FlxGradient;
 
 static var gameSize = {
 	X: 400,

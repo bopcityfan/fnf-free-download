@@ -1,4 +1,4 @@
-package karaoke.util;
+package karaoke.backend.utils;
 
 using StringTools;
 

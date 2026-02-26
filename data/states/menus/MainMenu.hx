@@ -15,12 +15,12 @@ function set_curSelected(val:Int):Int {
 function create() {
 	playMenuMusic();
 
-	bg = new FunkinSprite().loadGraphic(Paths.image('menus/backgrounds/dawn'));
+	bg = new FunkinSprite().loadGraphic(Paths.image('menus/backgrounds/dawn', null, true));
 	bg.scale.set(2, 2);
 	bg.updateHitbox();
 	add(bg);
 
-	options = new FunkinSprite().loadSprite(Paths.image('menus/mainMenu/options'));
+	options = new FunkinSprite().loadSprite(Paths.image('menus/mainMenu/options', null, true));
 	for (index=>name in optionList) {
 		options.addAnim(name, 'spr_titlewords2_${index}', 0, true);
 	}
