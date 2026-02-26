@@ -1,11 +1,16 @@
-import funkin.menus.ModSwitchMenu;
-import funkin.options.OptionsMenu;
-import funkin.backend.MusicBeatState;
+import funkin.backend.system.Flags;
+
+final optionList:Array<String> = ['StoryMenu', 'Freeplay', 'Settings'];
 
 var bg:FunkinSprite;
 var options:FunkinSprite;
-var optionList:Array<String> = ['StoryMenu', 'Freeplay', 'Settings'];
-var curSelected:Int = 0;
+
+var curSelected(default, set):Int = 0;
+function set_curSelected(val:Int):Int {
+	var newVal:Int = FlxMath.wrap(val, 0, optionList.length-1);
+	options?.playAnim(optionList[newVal], true);
+	return curSelected = newVal;
+}
 
 function create() {
 	playMenuMusic();
@@ -26,29 +31,34 @@ function create() {
 	options.playAnim('StoryMenu', true);
 }
 
-function update(elapsed:Float) {
-	if (controls.ACCEPT) {
-		if (Assets.exists(Paths.script('data/states/menus/${optionList[curSelected]}'))) {
-			FlxG.sound.play(Paths.sound("menus/josh")).persist = true;
-			FlxG.switchState(new ModState('menus/${optionList[curSelected]}'));
-		}
+function accept() {
+	if (!Assets.exists(Paths.script('data/states/menus/${optionList[curSelected]}'))) {
+		return;
 	}
 
-	// if (FlxG.keys.justPressed.SEVEN) {
-	// 	persistentUpdate = false;
-	// 	openSubState(new ModSubState('substates/editors/EditorSelect'));
-	// }
+	FlxG.sound.play(Paths.sound("menus/josh")).persist = true;
+	FlxG.switchState(new ModState('menus/${optionList[curSelected]}'));
+}
+
+function update(elapsed:Float) {
+	if (controls.ACCEPT) {
+		accept();
+	}
+
+	if (controls.DEV_ACCESS && !Flags.DISABLE_EDITORS) {
+		persistentUpdate = false;
+		openSubState(new ModSubState('substates/editors/EditorSelect'));
+	}
 
 	// if (controls.SWITCHMOD) {
 	// 	persistentUpdate = false;
 	// 	openSubState(new ModSubState('substates/menus/ModSwitch'));
 	// }
 
-	if (controls.DOWN_P || controls.UP_P) {
-		curSelected = FlxMath.wrap(curSelected + (controls.DOWN_P ? 1 : -1), 0, optionList.length-1);
-		options.playAnim(optionList[curSelected], true);
-		options.x = -22;
-		options.y = -22;
+	if (controls.DOWN_P) {
+		curSelected += 1;
+	} else if (controls.UP_P) {
+		curSelected -= 1;
 	}
 
 	bg.y = CoolUtil.fpsLerp(bg.y, (-125/1.15) * curSelected, 0.06);

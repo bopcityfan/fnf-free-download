@@ -2,7 +2,7 @@ import openfl.system.Capabilities;
 import funkin.savedata.FunkinSave;
 import funkin.backend.MusicBeatState;
 
-final gameSize = {
+static var gameSize = {
 	X: 400,
 	Y: 400
 };
@@ -22,6 +22,30 @@ final redirectStates = [
 ];
 
 static var initialized:Bool = false;
+
+static function resizeGame(width:Int, height:Int, winWidth:Int, winHeight:Int, center:Bool = true, resizable:Bool = true) {
+	FlxG.width = FlxG.initialWidth = width;
+	FlxG.height = FlxG.initialHeight = height;
+	window.resize(winWidth, winHeight);
+	if (resizable == null) {
+		window.resizable = true;
+	} else {
+		window.resizable = resizable;
+	}
+
+	for (camera in FlxG.cameras.list) {
+		camera.setSize(width, height);
+	}
+
+	if (center == null) {
+		center = true;
+	} else if (!center) {
+		return;
+	}
+
+	window.x = (Capabilities.screenResolutionX / 2) - (window.width / 2);
+	window.y = (Capabilities.screenResolutionY / 2) - (window.height / 2);
+}
 
 static function flash(cam:FlxCamera, data:{color:FlxColor, time:Float, force:Bool}, onComplete:Void->Void) {
 	if (!FunkinSave.save.data.epilepsy) {
@@ -51,16 +75,7 @@ function new() {
 		}
 	}
 
-	FlxG.width = FlxG.initialWidth = gameSize.X;
-	FlxG.height = FlxG.initialHeight = gameSize.Y;
-	window.resize(FlxG.width*2, FlxG.height*2);
-	window.resizable = true;
-	for (camera in FlxG.cameras.list) {
-		camera.setSize(FlxG.width, FlxG.height);
-	}
-
-	window.x = (Capabilities.screenResolutionX / 2) - (window.width / 2);
-	window.y = (Capabilities.screenResolutionY / 2) - (window.height / 2);
+	resizeGame(gameSize.X, gameSize.Y, gameSize.X*2, gameSize.Y*2);
 
 	FlxG.mouse.useSystemCursor = true;
 	FlxG.mouse.visible = true;
@@ -70,12 +85,11 @@ function preStateSwitch() {
 	if (!initialized) {
 		initialized = true;
 		MusicBeatState.skipTransIn = MusicBeatState.skipTransOut = true;
-		FlxG.game._requestedState = FunkinSave.save.data.introSplash ? new ModState('menus/SplashScreen') : new ModState('menus/Title');
+		FlxG.game._requestedState = FunkinSave.save.data.introSplash ? new ModState('menus/SplashScreen') : new ModState('TitleScreen');
 	}
+}
 
-	for (state => replacement in redirectStates) {
-		if (FlxG.game._requestedState is state) {
-			FlxG.game._requestedState = new ModState(replacement);
-		}
-	}
+function destroy() {
+	initialized = null;
+	gameSize = null;
 }

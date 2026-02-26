@@ -1,7 +1,7 @@
 import flixel.text.FlxText.FlxTextFormat;
 import flixel.text.FlxText.FlxTextFormatMarkerPair;
-import karaoke.util.ColorExtension;
 import flixel.group.FlxSpriteGroup;
+import karaoke.util.ColorExtension;
 
 using ColorExtension;
 

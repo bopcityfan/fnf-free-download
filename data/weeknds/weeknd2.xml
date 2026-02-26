@@ -1,0 +1,14 @@
+<!DOCTYPE free-download-weeknd>
+<weeknd name="WEEKND 2" rating="normal" index="2">
+	<composition folder="menus/storyMode/weeknd2">
+		<sprite name="cyan" x="0" y="0" sprite="cyan" antialiasing="false"/>
+		<sprite name="cyanCDBoy" x="0" y="0" sprite="cyanCDBoy" antialiasing="false"/>
+
+		<sprite name="dude" x="0" y="0" sprite="dude" antialiasing="false"/>
+	</composition>
+
+	<songlist>
+		<song name="girl-next-door" display="girl next door"/>
+		<song name="gamejack" display="gameboy"/>
+	</songlist>
+</weeknd>

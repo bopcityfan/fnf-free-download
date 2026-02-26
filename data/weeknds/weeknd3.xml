@@ -1,0 +1,11 @@
+<!DOCTYPE free-download-weeknd>
+<weeknd name="WEEKND 3" rating="normal" index="3">
+	<composition folder="menus/storyMode">
+		<sprite name="banner" x="0" y="0" sprite="weeknd3" antialiasing="false"/>
+	</composition>
+
+	<songlist>
+		<song name="twinkle"/>
+		<song name="tsunami"/>
+	</songlist>
+</weeknd>
