@@ -1,5 +1,6 @@
 import flixel.util.FlxGradient;
 import funkin.backend.system.Conductor;
+import funkin.savedata.FunkinSave;
 
 public var isNightTime:Bool = false;
 var sky:FunkinSprite;
@@ -22,7 +23,7 @@ function postCreate() {
 	} else {
 		insert(0, sky = new FunkinSprite(0, -75).loadGraphic(Paths.image("game/stages/house/googlenightsky")));
 		sky.scrollFactor.set(0.5, 0.5);
-		sky.shader = new CustomShader("wiggle-but-weird");
+		sky.shader = new CustomShader("wiggleButWeird");
 		sky.shader.wIntensity = 0.025;
 		sky.shader.wStrength = 5;
 		sky.shader.wSpeed = 1;
@@ -31,7 +32,7 @@ function postCreate() {
 
 		insert(5, houseLights = new FunkinSprite());
 		houseLights.loadSprite(Paths.image("game/stages/house/lights"));
-		houseLights.animation.add("lights", FlxG.save.data.freeCOLORCHANGING ? [0,1,2,3] : [0], 0, true, false, false);
+		houseLights.animation.add("lights", !FunkinSave.save.data.epilepsy ? [0,1,2,3] : [0], 0, true, false, false);
 		houseLights.playAnim("lights", true);
 
 		insert(6, cyan = new FunkinSprite(95, 104).loadGraphic(Paths.image("game/stages/house/cyan")));

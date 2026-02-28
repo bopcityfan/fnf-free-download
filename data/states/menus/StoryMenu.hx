@@ -54,9 +54,11 @@ function create() {
 		}
 	}
 
-	for (index => weeknd in weekndFiles) {
+	for (weeknd in weekndFiles) {
 		weeknd = weeknd.split('.')[0];
 		var xml:Xml = Xml.parse(Assets.getText(Paths.xml('weeknds/${weeknd}'))).firstElement();
+
+		final index:Int = Std.parseInt(xml.get('index')) ?? 0;
 
 		var data = {
 			xml: xml,
@@ -183,7 +185,7 @@ function update(elapsed:Float) {
 	}
 
 	if (controls.BACK) {
-		FlxG.switchState(new ModState('menus/Mainmenu'));
+		FlxG.switchState(new ModState('menus/MainMenu'));
 	}
 
 	if (controls.LEFT_P) {

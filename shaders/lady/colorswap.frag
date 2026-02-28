@@ -1,14 +1,14 @@
 #pragma header
 
-uniform vec4 colorReplaceSkin;
-uniform vec4 colorReplaceHair;
-uniform vec4 colorReplaceDye;
+uniform vec4 colorReplaceSkin = vec4(243.0/255.0, 224.0/255.0, 203.0/255.0, 1.0);
+uniform vec4 colorReplaceHair = vec4(198.0/255.0, 192.0/255.0, 179.0/255.0, 1.0);
+uniform vec4 colorReplaceDye = vec4(88.0/255.0, 61.0/255.0, 95.0/255.0, 1.0);
 
-uniform vec4 colorReplaceShirt;
+uniform vec4 colorReplaceShirt = vec4(63.0/255.0, 114.0/255.0, 112.0/255.0, 1.0);
 
-uniform vec4 colorReplaceShorts;
-uniform vec4 colorReplaceSocks;
-uniform vec4 colorReplaceShoes;
+uniform vec4 colorReplaceShorts = vec4(44.0/255.0, 63.0/255.0, 62.0/255.0, 1.0);
+uniform vec4 colorReplaceSocks = vec4(187.0/255.0, 201.0/255.0, 208.0/255.0, 1.0);
+uniform vec4 colorReplaceShoes = vec4(53.0/255.0, 69.0/255.0, 77.0/255.0, 1.0);
 
 vec4 colorSkin = vec4(243.0/255.0, 224.0/255.0, 203.0/255.0, 1.0);
 vec4 colorHair = vec4(198.0/255.0, 192.0/255.0, 179.0/255.0, 1.0);
