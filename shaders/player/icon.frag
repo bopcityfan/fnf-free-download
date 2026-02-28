@@ -7,8 +7,10 @@ void main()
 	// texture2D instead of flixel_texture2D so we get the base texture without any modifications
 	vec4 pixelColor = texture2D(bitmap, openfl_TextureCoordv);
 
-	if(pixelColor.r == 1.0 && pixelColor.g == 0. && pixelColor.b == 0.0)
+	// if(pixelColor.r == 1.0 && pixelColor.g == 0. && pixelColor.b == 0.0) {
+	if(pixelColor.rgb == vec3(1.0, 0.0, 0.0)) {
 		pixelColor.rgb = favColor.rgb;
+	}
 
 	// apply the colorTransform stuff that flixel_texture2D normally does (stolen from FlxGraphicsShader lol!!!)
 	if (hasColorTransform) {
@@ -20,7 +22,7 @@ void main()
 
 		pixelColor = clamp(openfl_ColorOffsetv + (pixelColor * colorMultiplier), 0.0, 1.0);
 	}
-	
+
 	// alpha fix (also stolen from FlxGraphicsShader)
 	if (pixelColor.a > 0.0) gl_FragColor = vec4(pixelColor.rgb * pixelColor.a * openfl_Alphav, pixelColor.a * openfl_Alphav);
 	else gl_FragColor = vec4(pixelColor.rgb / pixelColor.a, pixelColor.a);

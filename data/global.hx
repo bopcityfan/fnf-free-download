@@ -16,7 +16,8 @@ final saveDataInitialValues = [
 	"autoHideFPS" => true,
 	"dxStyledStrums" => false,
 	"botplay" => false,
-	"noteskin" => "default"
+	"noteskin" => "default",
+	"showAccuracy" => false
 ];
 final redirectStates = [
 	MainMenuState => 'menus/MainMenu',

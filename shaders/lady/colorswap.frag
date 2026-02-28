@@ -1,17 +1,5 @@
 #pragma header
 
-// i stole this from source lol
-// the two comments below this one are from deklaswas and tyler i think
-
-//If you want to add a new color to swap, make sure you add a new uniform vector and normal vector.
-//Basically, just copy the way it is done for preexisting colors
-
-//thank u deklaswas
-
-// whats up guys
-
-// why arent they responding to me :-(
-
 uniform vec4 colorReplaceSkin;
 uniform vec4 colorReplaceHair;
 uniform vec4 colorReplaceDye;
@@ -32,28 +20,33 @@ vec4 colorShorts = vec4(44.0/255.0, 63.0/255.0, 62.0/255.0, 1.0);
 vec4 colorSocks = vec4(187.0/255.0, 201.0/255.0, 208.0/255.0, 1.0);
 vec4 colorShoes = vec4(53.0/255.0, 69.0/255.0, 77.0/255.0, 1.0);
 
+float range = 3.0 / 255.0;
+vec3 rangeVec = vec3(range, range, range);
+
+bool inRange(vec3 rgb)
+{
+	return all(lessThanEqual(rgb, rangeVec));
+}
+
 void main()
 {
-	// texture2D instead of flixel_texture2D so we get the base texture without any modifications
 	vec4 pixelColor = texture2D(bitmap, openfl_TextureCoordv);
-	
-	float range = 3.0 / 255.0;
 
-	if(abs(pixelColor.r - colorSkin.r) <= range && abs(pixelColor.g - colorSkin.g) <= range && abs(pixelColor.b - colorSkin.b) <= range)
+	if(inRange(abs(pixelColor.rgb - colorSkin.rgb)))
 		pixelColor.rgb = colorReplaceSkin.rgb;
-	if(abs(pixelColor.r - colorHair.r) <= range && abs(pixelColor.g - colorHair.g) <= range && abs(pixelColor.b - colorHair.b) <= range)
+	if(inRange(abs(pixelColor.rgb - colorHair.rgb)))
 		pixelColor.rgb = colorReplaceHair.rgb;
-	if(abs(pixelColor.r - colorDye.r) <= range && abs(pixelColor.g - colorDye.g) <= range && abs(pixelColor.b - colorDye.b) <= range)
+	if(inRange(abs(pixelColor.rgb - colorDye.rgb)))
 		pixelColor.rgb = colorReplaceDye.rgb;
 
-	if(abs(pixelColor.r - colorShirt.r) <= range && abs(pixelColor.g - colorShirt.g) <= range && abs(pixelColor.b - colorShirt.b) <= range)
+	if(inRange(abs(pixelColor.rgb - colorShirt.rgb)))
 		pixelColor.rgb = colorReplaceShirt.rgb;
 
-	if(abs(pixelColor.r - colorShorts.r) <= range && abs(pixelColor.g - colorShorts.g) <= range && abs(pixelColor.b - colorShorts.b) <= range)
+	if(inRange(abs(pixelColor.rgb - colorShorts.rgb)))
 		pixelColor.rgb = colorReplaceShorts.rgb;
-	if(abs(pixelColor.r - colorSocks.r) <= range && abs(pixelColor.g - colorSocks.g) <= range && abs(pixelColor.b - colorSocks.b) <= range)
+	if(inRange(abs(pixelColor.rgb - colorSocks.rgb)))
 		pixelColor.rgb = colorReplaceSocks.rgb;
-	if(abs(pixelColor.r - colorShoes.r) <= range && abs(pixelColor.g - colorShoes.g) <= range && abs(pixelColor.b - colorShoes.b) <= range)
+	if(inRange(abs(pixelColor.rgb - colorShoes.rgb)))
 		pixelColor.rgb = colorReplaceShoes.rgb;
 
 	// apply the colorTransform stuff that flixel_texture2D normally does (stolen from FlxGraphicsShader lol!!!)
@@ -66,7 +59,7 @@ void main()
 
 		pixelColor = clamp(openfl_ColorOffsetv + (pixelColor * colorMultiplier), 0.0, 1.0);
 	}
-	
+
 	// alpha fix (also stolen from FlxGraphicsShader)
 	if (pixelColor.a > 0.0) gl_FragColor = vec4(pixelColor.rgb * pixelColor.a * openfl_Alphav, pixelColor.a * openfl_Alphav);
 	else gl_FragColor = vec4(pixelColor.rgb / pixelColor.a, pixelColor.a);

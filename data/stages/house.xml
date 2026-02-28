@@ -1,0 +1,11 @@
+<!DOCTYPE codename-engine-stage>
+<stage zoom="1" name="gaw" folder="game/stages/house/">
+	<combo x="-2147483647"/>
+
+	<sprite name="back" x="-16" y="3" sprite="back" antialiasing="false" scroll="0.9"/>
+	<sprite name="pool" x="1" y="0.5" sprite="pool" antialiasing="false"/>
+
+	<girlfriend x="380" y="125.5" scroll="1"/>
+	<dad x="232" y="75.5"/>
+	<boyfriend x="503" y="179.5"/>
+</stage>
