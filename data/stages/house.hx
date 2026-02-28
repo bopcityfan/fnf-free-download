@@ -74,16 +74,16 @@ function postCreate() {
 			spr.draw();
 		};
 
-		boyfriend.onDraw = (spr:Character) -> {
-			spr.color = 0xFF614C75;
-			spr.offset.set(-spr.globalOffset.x, -spr.globalOffset.y);
-			spr.alpha = 1;
-			spr.draw();
+		// boyfriend.onDraw = (spr:Character) -> {
+		// 	spr.color = 0xFF614C75;
+		// 	spr.offset.set(-spr.globalOffset.x, -spr.globalOffset.y);
+		// 	spr.alpha = 1;
+		// 	spr.draw();
 
-			spr.setColorTransform(0, 0, 0, 0.45);
-			spr.offset.set(-spr.globalOffset.x + -4, -spr.globalOffset.y);
-			spr.draw();
-		};
+		// 	spr.setColorTransform(0, 0, 0, 0.45);
+		// 	spr.offset.set(-spr.globalOffset.x + -4, -spr.globalOffset.y);
+		// 	spr.draw();
+		// };
 
 		gf.onDraw = (spr:Character) -> {
 			spr.color = 0xFF614C75;

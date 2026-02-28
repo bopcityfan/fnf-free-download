@@ -24,43 +24,34 @@ vec3 colorStripe = vec3(101.0/255.0, 54.0/255.0, 98.0/255.0);
 vec3 colorPants = vec3(97.0/255.0, 87.0/255.0, 146.0/255.0);
 vec3 colorShoes = vec3(56.0/255.0, 54.0/255.0, 68.0/255.0);
 
-bool inRange(vec3 rgb, float range)
+float range = 5.0 / 255.0;
+vec3 rangeVec = vec3(range, range, range);
+
+bool inRange(vec3 rgb)
 {
-	return all(lessThanEqual(rgb, vec3(range, range, range)));
+	return all(lessThanEqual(rgb, rangeVec));
 }
 
 void main()
 {
 	vec4 pixelColor = texture2D(bitmap, openfl_TextureCoordv);
 
-	float range = 5.0 / 255.0;
-	bool isEyes = false;
-
-	if (inRange(abs(pixelColor.rgb - colorEyes.rgb), 1.0 / 255.0)) {
-		pixelColor.rgb = colorReplaceEyes;
-		isEyes = true;
-	}
-
-	if(inRange(abs(pixelColor.rgb - colorHat.rgb), range))
+	if(inRange(abs(pixelColor.rgb - colorHat.rgb)))
 		pixelColor.rgb = colorReplaceHat.rgb;
-	if(inRange(abs(pixelColor.rgb - colorSkin.rgb), range))
+	if(inRange(abs(pixelColor.rgb - colorSkin.rgb)))
 		pixelColor.rgb = colorReplaceSkin.rgb;
-	if(inRange(abs(pixelColor.rgb - colorHair.rgb), range))
+	if(inRange(abs(pixelColor.rgb - colorHair.rgb)))
 		pixelColor.rgb = colorReplaceHair.rgb;
 
-	if(inRange(abs(pixelColor.rgb - colorShirt.rgb), range))
+	if(inRange(abs(pixelColor.rgb - colorShirt.rgb)))
 		pixelColor.rgb = colorReplaceShirt.rgb;
-	if(inRange(abs(pixelColor.rgb - colorStripe.rgb), range))
+	if(inRange(abs(pixelColor.rgb - colorStripe.rgb)))
 		pixelColor.rgb = colorReplaceStripe.rgb;
 
-	if(inRange(abs(pixelColor.rgb - colorPants.rgb), range))
+	if(inRange(abs(pixelColor.rgb - colorPants.rgb)))
 		pixelColor.rgb = colorReplacePants.rgb;
-	if(inRange(abs(pixelColor.rgb - colorShoes.rgb), range))
+	if(inRange(abs(pixelColor.rgb - colorShoes.rgb)))
 		pixelColor.rgb = colorReplaceShoes.rgb;
 
-	if (!isEyes) {
-		gl_FragColor = applyFlixelEffects(pixelColor);
-	} else {
-		gl_FragColor = pixelColor;
-	}
+	gl_FragColor = applyFlixelEffects(pixelColor);
 }
