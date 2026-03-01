@@ -1,4 +1,6 @@
-var _speed:Float = 1;
+import funkin.savedata.FunkinSave;
+
+var speed:Float = 1;
 
 function create() {
 	if (playCutscenes)
@@ -10,15 +12,17 @@ function postCreate() {
 
 	for (sL in strumLines.members)
 		if (!sL.cpu)
-			sL.cpu = FlxG.save.data.freeBOTPLAY;
+			sL.cpu = FunkinSave.save.data.botplay;
 }
 
 function postUpdate(e:Float) {
-	if (FlxG.keys.pressed.TWO) _speed -= 0.01;
-	if (FlxG.keys.justPressed.THREE) _speed = 1;
-	if (FlxG.keys.pressed.FOUR) _speed += 0.01;
-	
-	FlxG.timeScale = inst.pitch = vocals.pitch = _speed;
+	if (FlxG.keys.pressed.TWO) speed -= 0.01;
+	if (FlxG.keys.justPressed.THREE) speed = 1;
+	if (FlxG.keys.pressed.FOUR) speed += 0.01;
+
+	FlxG.timeScale = inst.pitch = vocals.pitch = speed;
+
+	player.cpu = speed != 1 || FunkinSave.save.data.botplay;
 }
 
 function onGamePause(event) {

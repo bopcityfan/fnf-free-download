@@ -1,6 +1,6 @@
 #pragma header
 
-uniform vec3 colorReplaceEyes = vec3(31.0/255.0, 30.0/255.0, 39.0/255.0);
+uniform vec3 colorReplaceEyes = vec3(32.0/255.0, 30.0/255.0, 40.0/255.0);
 
 vec3 colorEyes = vec3(32.0/255.0, 30.0/255.0, 40.0/255.0);
 

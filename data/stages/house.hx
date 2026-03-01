@@ -1,6 +1,12 @@
 import flixel.util.FlxGradient;
 import funkin.backend.system.Conductor;
 import funkin.savedata.FunkinSave;
+import karaoke.backend.utils.ColorExtension;
+import karaoke.backend.utils.SpriteUtil;
+import karaoke.backend.utils.SpriteUtil.DrawPassType;
+
+using ColorExtension;
+using SpriteUtil;
 
 public var isNightTime:Bool = false;
 var sky:FunkinSprite;
@@ -45,13 +51,13 @@ function postCreate() {
 		dumbCircle.antialiasing = false;
 		dumbCircle.alpha = 0.5;
 
-		add(theStupidThing1 = new FunkinSprite().makeSolid(300, 475, 0xFF000000));
+		add(theStupidThing1 = new FunkinSprite().makeSolid(300, 500, 0xFF000000));
 		theStupidThing1.screenCenter();
 		theStupidThing1.x -= 120;
 		theStupidThing1.y -= 25;
 		theStupidThing1.angle = 12.5;
 
-		add(theStupidThing2 = new FunkinSprite().makeSolid(300, 475, 0xFF000000));
+		add(theStupidThing2 = new FunkinSprite().makeSolid(300, 500, 0xFF000000));
 		theStupidThing2.screenCenter();
 		theStupidThing2.x += 400;
 		theStupidThing2.y -= 25;
@@ -63,53 +69,32 @@ function postCreate() {
 			spr.color = 0xFF261B33;
 		}
 
-		dad.onDraw = (spr:Character) -> {
-			spr.color = 0xFF614C75;
-			spr.offset.set(-spr.globalOffset.x, -spr.globalOffset.y);
-			spr.alpha = 1;
-			spr.draw();
+		final baseLightingColor:Array<Float> = [97/255, 76/255, 117/255, 1.0];
+		final shadowColor:Array<Float> = [0, 0, 0, 0.45];
 
-			spr.setColorTransform(0, 0, 0, 0.45);
-			spr.offset.set(-spr.globalOffset.x + 4, -spr.globalOffset.y);
-			spr.draw();
-		};
+		dad.setDrawPass([
+			DrawPassType.LIGHTING({x: 4, y: 0}, baseLightingColor, shadowColor)
+		]);
 
-		// boyfriend.onDraw = (spr:Character) -> {
-		// 	spr.color = 0xFF614C75;
-		// 	spr.offset.set(-spr.globalOffset.x, -spr.globalOffset.y);
-		// 	spr.alpha = 1;
-		// 	spr.draw();
+		playerEyes.colorReplaceEyes = 0xFFFFFFFF.vec3();
+		boyfriend.setDrawPass([
+			DrawPassType.SHADER(true, {x: 0, y: 0}, playerSkin),
+			DrawPassType.LIGHTING({x: -4, y: 0}, baseLightingColor, shadowColor),
+			DrawPassType.SHADER(true, {x: 0, y: 0}, playerEyes)
+		]);
 
-		// 	spr.setColorTransform(0, 0, 0, 0.45);
-		// 	spr.offset.set(-spr.globalOffset.x + -4, -spr.globalOffset.y);
-		// 	spr.draw();
-		// };
+		gf.setDrawPass([
+			DrawPassType.SHADER(true, {x: 0, y: 0}, ladySkin),
+			DrawPassType.LIGHTING({x: 0, y: 4}, baseLightingColor, shadowColor),
+		]);
 
-		gf.onDraw = (spr:Character) -> {
-			spr.color = 0xFF614C75;
-			spr.offset.set(-spr.globalOffset.x, -spr.globalOffset.y);
-			spr.alpha = 1;
-			spr.draw();
-
-			spr.setColorTransform(0, 0, 0, 0.45);
-			spr.offset.set(-spr.globalOffset.x, -spr.globalOffset.y + 4);
-			spr.draw();
-		};
-
-		ladySpeaker.onDraw = (spr:FunkinSprite) -> {
-			spr.color = 0xFF614C75;
-			spr.offset.set();
-			spr.alpha = 1;
-			spr.draw();
-
-			spr.setColorTransform(0, 0, 0, 0.45);
-			spr.offset.set(0, 4);
-			spr.draw();
-		};
+		ladySpeaker.setDrawPass([
+			DrawPassType.LIGHTING({x: 0, y: 4}, baseLightingColor, shadowColor)
+		]);
 
 		speakerLight = true;
 
-		ladyDance = new Character(boyfriend.x + 75, boyfriend.y - 55, "lady-stars", true);
+		ladyDance = new Character(boyfriend.x + 75, boyfriend.y - 55, "ladydance", true);
 		player.characters.push(ladyDance);
 		insert(members.indexOf(boyfriend)+1, ladyDance);
 		ladyDance.kill();
@@ -197,12 +182,16 @@ function stepHit(s) {
 					for (name => spr in stage.stageSprites) {
 						spr.visible = false;
 					}
-					dad.onDraw = boyfriend.onDraw = null;
-					dad.setColorTransform();
-					boyfriend.setColorTransform();
-					dad.color = boyfriend.color = 0xFF000000;
-					dad.offset.set(-dad.globalOffset.x, -dad.globalOffset.y);
-					boyfriend.offset.set(-boyfriend.globalOffset.x, -boyfriend.globalOffset.y);
+
+					dad.setDrawPass([
+						DrawPassType.COLOR(true, {x: 0, y: 0}, [0,0,0])
+					]);
+
+					boyfriend.setDrawPass([
+						DrawPassType.SHADER(true, {x: 0, y: 0}, playerSkin),
+						DrawPassType.COLOR(true, {x: 0, y: 0}, [0,0,0])
+					]);
+
 					dad.scale.set(2, 2);
 					dad.updateHitbox();
 					boyfriend.scale.set(2, 2);
@@ -225,7 +214,6 @@ function stepHit(s) {
 					dad.updateHitbox();
 					boyfriend.scale.set(1, 1);
 					boyfriend.updateHitbox();
-					dad.color = boyfriend.color = 0xFFFFFFFF;
 
 					dad.x += 120;
 					dad.y -= 80;
@@ -233,30 +221,17 @@ function stepHit(s) {
 					boyfriend.x -= 80;
 					boyfriend.y -= 60;
 
-					camera.lock(camera.pos[2].x, camera.pos[2].y, true);
+					camera.lock(camera.data[2].x, camera.data[2].y, true);
 					camera.snap();
 
-					dad.onDraw = (spr:Character) -> {
-						spr.color = 0xFFFFFFFF;
-						spr.offset.set(-spr.globalOffset.x, -spr.globalOffset.y);
-						spr.alpha = 1;
-						spr.draw();
+					dad.setDrawPass([
+						DrawPassType.LIGHTING({x: 0, y: -4}, [1,1,1,1], [0,0,0,0.5])
+					]);
 
-						spr.setColorTransform(0, 0, 0, 0.5);
-						spr.offset.set(-spr.globalOffset.x, -spr.globalOffset.y + -4);
-						spr.draw();
-					};
-
-					boyfriend.onDraw = (spr:Character) -> {
-						spr.color = 0xFFFFFFFF;
-						spr.offset.set(-spr.globalOffset.x, -spr.globalOffset.y);
-						spr.alpha = 1;
-						spr.draw();
-
-						spr.setColorTransform(0, 0, 0, 0.5);
-						spr.offset.set(-spr.globalOffset.x, -spr.globalOffset.y + -4);
-						spr.draw();
-					};
+					boyfriend.setDrawPass([
+						DrawPassType.SHADER(true, {x: 0, y: 0}, playerSkin),
+						DrawPassType.LIGHTING({x: 0, y: -4}, [1,1,1,1], [0,0,0,0.5])
+					]);
 
 					dumbCircle.alpha = (theStupidThing1.alpha = theStupidThing2.alpha = 1) * 0.5;
 
@@ -266,46 +241,34 @@ function stepHit(s) {
 					gf.visible = false;
 					dad.x += 40;
 					boyfriend.x -= 40;
+
 					ladyDance.revive();
 					ladyDance.x -= 85;
-					ladyDance.onDraw = (spr:Character) -> {
-						spr.color = 0xFFFFFFFF;
-						spr.offset.set(-spr.globalOffset.x, -spr.globalOffset.y);
-						spr.alpha = 1;
-						spr.draw();
+					ladyDance.setDrawPass([
+						DrawPassType.SHADER(true, {x: 0, y: 0}, ladySkin),
+						DrawPassType.LIGHTING({x: 0, y: -4}, [1,1,1,1], [0,0,0,0.5])
+					]);
 
-						spr.setColorTransform(0, 0, 0, 0.5);
-						spr.offset.set(-spr.globalOffset.x, -spr.globalOffset.y + -4);
-						spr.draw();
-					};
 					flash(camGame, {color: 0xFFFFFFFF, time: 0.1, force: true}, null);
 				case 640:
-					dad.onDraw = (spr:Character) -> {
-						spr.color = 0xFF614C75;
-						spr.offset.set(-spr.globalOffset.x, -spr.globalOffset.y);
-						spr.alpha = 1;
-						spr.draw();
+					final baseLightingColor:Array<Float> = [97/255, 76/255, 117/255, 1.0];
+					final shadowColor:Array<Float> = [0, 0, 0, 0.45];
 
-						spr.setColorTransform(0, 0, 0, 0.45);
-						spr.offset.set(-spr.globalOffset.x + 4, -spr.globalOffset.y);
-						spr.draw();
-					};
+					dad.setDrawPass([
+						DrawPassType.LIGHTING({x: 4, y: 0}, baseLightingColor, shadowColor)
+					]);
 
-					boyfriend.onDraw = (spr:Character) -> {
-						spr.color = 0xFF614C75;
-						spr.offset.set(-spr.globalOffset.x, -spr.globalOffset.y);
-						spr.alpha = 1;
-						spr.draw();
-
-						spr.setColorTransform(0, 0, 0, 0.45);
-						spr.offset.set(-spr.globalOffset.x + -4, -spr.globalOffset.y);
-						spr.draw();
-					};
+					playerEyes.colorReplaceEyes = 0xFFFFFFFF.vec3();
+					boyfriend.setDrawPass([
+						DrawPassType.SHADER(true, {x: 0, y: 0}, playerSkin),
+						DrawPassType.LIGHTING({x: -4, y: 0}, baseLightingColor, shadowColor),
+						DrawPassType.SHADER(true, {x: 0, y: 0}, playerEyes)
+					]);
 
 					dumbCircle.alpha = theStupidThing1.alpha = theStupidThing2.alpha = 0;
 
-					dad.x = 260;
-					boyfriend.x = 540;
+					dad.x = 232;
+					boyfriend.x = 503;
 					gf.visible = true;
 					ladyDance.kill();
 					camera.unlock();

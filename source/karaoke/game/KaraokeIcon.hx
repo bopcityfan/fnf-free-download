@@ -1,4 +1,4 @@
-// shut up vsc
+package karaoke.game;
 
 class KaraokeIcon extends funkin.backend.FunkinSprite {
 	public var healthSteps:Map<Int, Int> = [

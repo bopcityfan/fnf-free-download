@@ -1,21 +1,39 @@
-function postCreate() {
+// function postCreate() {
 	// for (sL in strumLines.members) {
+	// 	var newCharacters:Array<KaraokeCharacter> = [];
+
 	// 	for (index => char in sL.characters) {
-	// 		if (StringTools.contains(char.curCharacter, "dude") && iKnowWhatYouAre()) {
-	// 			sL.characters.remove(char);
-	// 			remove(char);
-	// 			var charPosName:String = sL.position == null ? (switch(sL.type) {
-	// 				case 0: "dad";
-	// 				case 1: "boyfriend";
-	// 				case 2: "girlfriend";
-	// 			}) : sL.position;
-	// 			char = new Character(char.x, char.y, StringTools.replace(char.curCharacter, "dude", "player-f"), !stage.isCharFlipped(charPosName, sL.type == 1));
-	// 			stage.applyCharStuff(char, charPosName, index);
-	// 			sL.characters.push(char);
-	// 		}
-	// 	}
+			// if (StringTools.contains(char.curCharacter, "dude") && iKnowWhatYouAre()) {
+			// 	sL.characters.remove(char);
+			// 	remove(char);
+			// 	var charPosName:String = sL.position == null ? (switch(sL.type) {
+			// 		case 0: "dad";
+			// 		case 1: "boyfriend";
+			// 		case 2: "girlfriend";
+			// 	}) : sL.position;
+			// 	char = new Character(char.x, char.y, StringTools.replace(char.curCharacter, "dude", "player-f"), !stage.isCharFlipped(charPosName, sL.type == 1));
+			// 	stage.applyCharStuff(char, charPosName, index);
+			// 	sL.characters.push(char);
+			// }
+
+			// if (char is KaraokeCharacter) {
+			// 	continue;
+			// }
+
+			// var memberIdx:Int = members.indexOf(char);
+
+			// char.script.active = false;
+			// char.script.destroy();
+			// char.kill();
+
+			// var replacement:KaraokeCharacter = new KaraokeCharacter(char.x, char.y, char.curCharacter, char.isPlayer, char.__switchAnims, false);
+			// newCharacters.insert(index, replacement);
+			// insert(memberIdx, replacement);
+		// }
+
+		// sL.characters = newCharacters;
 	// }
-}
+// }
 
 function onGamePause(event) {
 	for (sl in strumLines.members) {
