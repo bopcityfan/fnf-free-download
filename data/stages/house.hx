@@ -130,49 +130,27 @@ function stepHit(s) {
 						spr.color = 0xFFFFC8AD;
 					}
 
-					dad.onDraw = (spr:Character) -> {
-						spr.color = 0xFFFFC8AD;
-						spr.offset.set(-spr.globalOffset.x, -spr.globalOffset.y);
-						spr.alpha = 1;
-						spr.draw();
+					final baseLightingColor:Array<Float> = 0xFFFFC8AD.vec4();
+					final shadowColor:Array<Float> = [0, 0, 0, 0.4];
 
-						spr.setColorTransform(0, 0, 0, 0.4);
-						spr.offset.set(-spr.globalOffset.x + 4, -spr.globalOffset.y + -4);
-						spr.draw();
-					};
+					dad.setDrawPass([
+						DrawPassType.LIGHTING({x: 4, y: -4}, baseLightingColor, shadowColor)
+					]);
 
-					boyfriend.onDraw = (spr:Character) -> {
-						spr.color = 0xFFFFC8AD;
-						spr.offset.set(-spr.globalOffset.x, -spr.globalOffset.y);
-						spr.alpha = 1;
-						spr.draw();
+					playerEyes.colorReplaceEyes = 0xFFFFFFFF.vec3();
+					boyfriend.setDrawPass([
+						DrawPassType.SHADER(true, {x: 0, y: 0}, playerSkin),
+						DrawPassType.LIGHTING({x: -4, y: -4}, baseLightingColor, shadowColor)
+					]);
 
-						spr.setColorTransform(0, 0, 0, 0.4);
-						spr.offset.set(-spr.globalOffset.x + -4, -spr.globalOffset.y + -4);
-						spr.draw();
-					};
+					gf.setDrawPass([
+						DrawPassType.SHADER(true, {x: 0, y: 0}, ladySkin),
+						DrawPassType.LIGHTING({x: 0, y: -4}, baseLightingColor, shadowColor),
+					]);
 
-					gf.onDraw = (spr:Character) -> {
-						spr.color = 0xFFFFC8AD;
-						spr.offset.set(-spr.globalOffset.x, -spr.globalOffset.y);
-						spr.alpha = 1;
-						spr.draw();
-
-						spr.setColorTransform(0, 0, 0, 0.4);
-						spr.offset.set(-spr.globalOffset.x, -spr.globalOffset.y + -4);
-						spr.draw();
-					};
-
-					ladySpeaker.onDraw = (spr:FunkinSprite) -> {
-						spr.color = 0xFFFFC8AD;
-						spr.offset.set();
-						spr.alpha = 1;
-						spr.draw();
-
-						spr.setColorTransform(0, 0, 0, 0.4);
-						spr.offset.set(0, -4);
-						spr.draw();
-					};
+					ladySpeaker.setDrawPass([
+						DrawPassType.LIGHTING({x: 0, y: -4}, baseLightingColor, shadowColor)
+					]);
 					speakerLight = true;
 			}
 		case "stars":
@@ -251,7 +229,7 @@ function stepHit(s) {
 
 					flash(camGame, {color: 0xFFFFFFFF, time: 0.1, force: true}, null);
 				case 640:
-					final baseLightingColor:Array<Float> = [97/255, 76/255, 117/255, 1.0];
+					final baseLightingColor:Array<Float> = 0xFF614C75.vec4();
 					final shadowColor:Array<Float> = [0, 0, 0, 0.45];
 
 					dad.setDrawPass([
@@ -281,27 +259,27 @@ function stepHit(s) {
 function onEvent(e) if (curSong == "stars" && e.event.name == "go off") {
 	if (e.event.params[0] != 2) {
 		var positions:Array<Float> = switch e.event.params[0] {
-			case 0: [212, -70, 450];
-			case 1: [212+225, -70+225, 450+225];
+			case 0: [220, -61, 458];
+			case 1: [365, 84, 603];
 		};
 		dumbCircle.x = positions[0];
 		dumbCircle.y = 261;
 		dumbCircle.setGraphicSize(257,dumbCircle.height); dumbCircle.updateHitbox();
 
 		theStupidThing1.x = positions[1];
-		theStupidThing1.y = -63;
+		theStupidThing1.y = -70;
 
 		theStupidThing2.x = positions[2];
-		theStupidThing2.y = -63;
+		theStupidThing2.y = -70;
 	} else {
-		dumbCircle.x = 258;
+		dumbCircle.x = 229;
 		dumbCircle.y = 261;
 		dumbCircle.setGraphicSize(385,dumbCircle.height); dumbCircle.updateHitbox();
 
-		theStupidThing1.x = -15;
-		theStupidThing1.y = -63;
+		theStupidThing1.x = -52;
+		theStupidThing1.y = -70;
 
-		theStupidThing2.x = 450+225-55;
-		theStupidThing2.y = -63;
+		theStupidThing2.x = 595;
+		theStupidThing2.y = -70;
 	}
 }
