@@ -1,10 +1,3 @@
-import karaoke.backend.utils.ColorExtension;
-import karaoke.backend.utils.SpriteUtil;
-import karaoke.backend.utils.SpriteUtil.DrawPassType;
-
-using ColorExtension;
-using SpriteUtil;
-
 static var playerSkin:CustomShader;
 static var playerEyes:CustomShader;
 

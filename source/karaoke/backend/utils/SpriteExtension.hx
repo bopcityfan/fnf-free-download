@@ -6,7 +6,7 @@ enum DrawPassType {
 	COLOR(callDraw:Bool, offset:{x:Float, y:Float}, color:Array<Float>);
 }
 
-class SpriteUtil {
+class SpriteExtension {
 	static public function setDrawPass(sprite:FlxSprite, drawPasses:Array<DrawPassType>) {
 		var passes:Array<DrawPassType> = drawPasses;
 

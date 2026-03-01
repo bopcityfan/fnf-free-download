@@ -2,11 +2,12 @@ import flixel.util.FlxGradient;
 import funkin.backend.system.Conductor;
 import funkin.savedata.FunkinSave;
 import karaoke.backend.utils.ColorExtension;
-import karaoke.backend.utils.SpriteUtil;
-import karaoke.backend.utils.SpriteUtil.DrawPassType;
+import karaoke.backend.utils.SpriteExtension;
+import karaoke.backend.utils.SpriteExtension.DrawPassType;
+import karaoke.backend.utils.KaraokeUtil;
 
 using ColorExtension;
-using SpriteUtil;
+using SpriteExtension;
 
 public var isNightTime:Bool = false;
 var sky:FunkinSprite;
@@ -78,13 +79,13 @@ function postCreate() {
 
 		playerEyes.colorReplaceEyes = 0xFFFFFFFF.vec3();
 		boyfriend.setDrawPass([
-			DrawPassType.SHADER(true, {x: 0, y: 0}, playerSkin),
+			DrawPassType.SHADER(false, {x: 0, y: 0}, playerSkin),
 			DrawPassType.LIGHTING({x: -4, y: 0}, baseLightingColor, shadowColor),
 			DrawPassType.SHADER(true, {x: 0, y: 0}, playerEyes)
 		]);
 
 		gf.setDrawPass([
-			DrawPassType.SHADER(true, {x: 0, y: 0}, ladySkin),
+			DrawPassType.SHADER(false, {x: 0, y: 0}, ladySkin),
 			DrawPassType.LIGHTING({x: 0, y: 4}, baseLightingColor, shadowColor),
 		]);
 
@@ -119,10 +120,10 @@ function stepHit(s) {
 		case "summer":
 			switch s {
 				case 376:
-					// camGame.fade(0xFFFFFFFF, Conductor.getStepsInTime(8), false, null, true);
+					camGame.fade(0xFFFFFFFF, KaraokeUtil.songTimeToSeconds(0, 2, 0), false, null, true);
 				case 384:
-					// camGame.flash(0xFFFFFFFF, 0.001, null, true); // stop the fade or something? idk
-					// camGame.fade(0xFFFFFFFF, Conductor.getStepsInTime(4), true, null, true);
+					camGame.flash(0xFFFFFFFF, 0.001, null, true); // stop the fade or something? idk
+					camGame.fade(0xFFFFFFFF, KaraokeUtil.songTimeToSeconds(0, 1, 0), true, null, true);
 
 					FlxGradient.overlayGradientOnFlxSprite(sky, sky.width, sky.height, [0xFFE6966E, 0xFFE8B66C], 0, 0, 1, 90, true);
 
@@ -139,12 +140,12 @@ function stepHit(s) {
 
 					playerEyes.colorReplaceEyes = 0xFFFFFFFF.vec3();
 					boyfriend.setDrawPass([
-						DrawPassType.SHADER(true, {x: 0, y: 0}, playerSkin),
+						DrawPassType.SHADER(false, {x: 0, y: 0}, playerSkin),
 						DrawPassType.LIGHTING({x: -4, y: -4}, baseLightingColor, shadowColor)
 					]);
 
 					gf.setDrawPass([
-						DrawPassType.SHADER(true, {x: 0, y: 0}, ladySkin),
+						DrawPassType.SHADER(false, {x: 0, y: 0}, ladySkin),
 						DrawPassType.LIGHTING({x: 0, y: -4}, baseLightingColor, shadowColor),
 					]);
 
@@ -166,7 +167,7 @@ function stepHit(s) {
 					]);
 
 					boyfriend.setDrawPass([
-						DrawPassType.SHADER(true, {x: 0, y: 0}, playerSkin),
+						DrawPassType.SHADER(false, {x: 0, y: 0}, playerSkin),
 						DrawPassType.COLOR(true, {x: 0, y: 0}, [0,0,0])
 					]);
 
@@ -178,7 +179,7 @@ function stepHit(s) {
 					dad.x -= 80;
 					dad.y += 80;
 
-					boyfriend.x += 40;
+					boyfriend.x += 20;
 					boyfriend.y += 60;
 
 					flash(camGame, {color: 0xFFFFFFFF, time: 0.1, force: true}, null);
@@ -207,7 +208,7 @@ function stepHit(s) {
 					]);
 
 					boyfriend.setDrawPass([
-						DrawPassType.SHADER(true, {x: 0, y: 0}, playerSkin),
+						DrawPassType.SHADER(false, {x: 0, y: 0}, playerSkin),
 						DrawPassType.LIGHTING({x: 0, y: -4}, [1,1,1,1], [0,0,0,0.5])
 					]);
 
@@ -223,7 +224,7 @@ function stepHit(s) {
 					ladyDance.revive();
 					ladyDance.x -= 85;
 					ladyDance.setDrawPass([
-						DrawPassType.SHADER(true, {x: 0, y: 0}, ladySkin),
+						DrawPassType.SHADER(false, {x: 0, y: 0}, ladySkin),
 						DrawPassType.LIGHTING({x: 0, y: -4}, [1,1,1,1], [0,0,0,0.5])
 					]);
 
@@ -238,7 +239,7 @@ function stepHit(s) {
 
 					playerEyes.colorReplaceEyes = 0xFFFFFFFF.vec3();
 					boyfriend.setDrawPass([
-						DrawPassType.SHADER(true, {x: 0, y: 0}, playerSkin),
+						DrawPassType.SHADER(false, {x: 0, y: 0}, playerSkin),
 						DrawPassType.LIGHTING({x: -4, y: 0}, baseLightingColor, shadowColor),
 						DrawPassType.SHADER(true, {x: 0, y: 0}, playerEyes)
 					]);
