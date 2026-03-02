@@ -1,5 +1,3 @@
-// shut up vsc
-
 import flixel.ui.FlxBar;
 import flixel.ui.FlxBarFillDirection;
 import funkin.savedata.FunkinSave;
@@ -167,6 +165,8 @@ function postCreate() {
 			};
 			scoreText.setFormat(scoreText.font, scoreText.size, 0xFF000000, scoreText.alignment, scoreText.borderStyle, 0xFFFFFFFF);
 	}
+
+	camHUD.pixelPerfectRender = true;
 
 	add(scoreText);
 }

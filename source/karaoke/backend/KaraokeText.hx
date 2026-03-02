@@ -43,8 +43,9 @@ class KaraokeText extends FunkinText {
 		// lunarcleint figured this out thank u lunar holy shit 🙏
 		textField.antiAliasType = 0; // advanced
 		textField.sharpness = 400; // max i think idk thats what it says
+		letterSpacing = 2;
 
-		font = Paths.font("Pixellari.ttf");
+		font = Paths.font("pixelComicSans.ttf");
 	}
 
 	private function setGradient(colors:Array<FlxColor>) {

@@ -1,8 +1,6 @@
-// function postCreate() {
-	// for (sL in strumLines.members) {
-	// 	var newCharacters:Array<KaraokeCharacter> = [];
-
-	// 	for (index => char in sL.characters) {
+function postCreate() {
+	for (sL in strumLines.members) {
+		for (index => char in sL.characters) {
 			// if (StringTools.contains(char.curCharacter, "dude") && iKnowWhatYouAre()) {
 			// 	sL.characters.remove(char);
 			// 	remove(char);
@@ -16,24 +14,10 @@
 			// 	sL.characters.push(char);
 			// }
 
-			// if (char is KaraokeCharacter) {
-			// 	continue;
-			// }
-
-			// var memberIdx:Int = members.indexOf(char);
-
-			// char.script.active = false;
-			// char.script.destroy();
-			// char.kill();
-
-			// var replacement:KaraokeCharacter = new KaraokeCharacter(char.x, char.y, char.curCharacter, char.isPlayer, char.__switchAnims, false);
-			// newCharacters.insert(index, replacement);
-			// insert(memberIdx, replacement);
-		// }
-
-		// sL.characters = newCharacters;
-	// }
-// }
+			char.pixelPerfectPosition = true;
+		}
+	}
+}
 
 function onGamePause(event) {
 	for (sl in strumLines.members) {

@@ -1,7 +1,7 @@
 <!DOCTYPE free-download-weeknd>
 <weeknd name="WEEKND 3" rating="normal" index="3" color="#B43E3E">
 	<composition folder="menus/storyMode/">
-		<sprite name="banner" x="0" y="0" sprite="weeknd3" antialiasing="false"/>
+		<sprite name="banner" x="0" y="0" sprite="weeknd3" antialiasing="false" shader="player/icon"/>
 	</composition>
 
 	<song name="twinkle"/>

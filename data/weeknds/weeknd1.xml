@@ -1,7 +1,7 @@
 <!DOCTYPE free-download-weeknd>
 <weeknd name="WEEKND 1" rating="easy" index="1" color="#8758A3">
 	<composition folder="menus/storyMode/">
-		<sprite name="banner" x="0" y="0" sprite="weeknd1" antialiasing="false"/>
+		<sprite name="banner" x="0" y="0" sprite="weeknd1" antialiasing="false" shader="player/icon"/>
 	</composition>
 
 	<song name="summer"/>

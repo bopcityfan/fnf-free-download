@@ -8,14 +8,17 @@ import funkin.backend.utils.XMLUtil;
 // cuz we CAN'T USE FUCKING ACCESS
 class XMLHelper {
 	static public function loadSpriteFromXML(spr:FunkinSprite, node:Xml, parentFolder:String = "", defaultAnimType:XMLAnimType = XMLAnimType.BEAT, loadSprite:Bool = true):FunkinSprite {
-		parentFolder = parentFolder ?? "";
-		defaultAnimType = defaultAnimType ?? XMLAnimType.BEAT;
-		loadSprite = loadSprite ?? true;
+		parentFolder = parentFolder != null ? parentFolder : "";
+		defaultAnimType = defaultAnimType != null ? defaultAnimType : XMLAnimType.BEAT;
+		loadSprite = loadSprite != null ? loadSprite : true;
 
 		spr.name = node.get("name");
 		spr.antialiasing = false;
 		if (loadSprite) {
-			spr.loadSprite(Paths.image('$parentFolder${node.get("sprite") ?? spr.name}', null, true));
+			var file:String = node.get("sprite");
+			file = file != null ? file : spr.name;
+
+			spr.loadSprite(Paths.image('${parentFolder}${file}', null, true));
 		}
 
 		spr.spriteAnimType = defaultAnimType;
@@ -47,6 +50,10 @@ class XMLHelper {
 		if (node.exists('flipX')) spr.flipX = node.get('flipX') == true;
 		if (node.exists('flipY')) spr.flipY = node.get('flipY') == true;
 		if (node.exists('playOnCountdown')) spr.skipNegativeBeats = node.get('playOnCountdown') == true;
+
+		if (node.exists('shader')) {
+			spr.shader = new CustomShader(node.get('shader'));
+		}
 
 		if (node.exists('updateHitbox') && node.get('updateHitbox') == "true") {
 			spr.updateHitbox();
@@ -92,7 +99,7 @@ class XMLHelper {
 		}
 
 		if (spr.frames != null && spr.frames.frames != null) {
-			addAnimToSprite(spr, {
+			XMLUtil.addAnimToSprite(spr, {
 				name: "idle",
 				anim: null,
 				fps: 24,
@@ -109,9 +116,9 @@ class XMLHelper {
 	}
 
 	static public function createSpriteFromXML(node:Xml, parentFolder:String = "", defaultAnimType:XMLAnimType = XMLAnimType.BEAT, loadSprite:Bool = true):FunkinSprite {
-		parentFolder = parentFolder ?? "";
-		defaultAnimType = defaultAnimType ?? XMLAnimType.BEAT;
-		loadSprite = loadSprite ?? true;
+		parentFolder = parentFolder != null ? parentFolder : "";
+		defaultAnimType = defaultAnimType != null ? defaultAnimType : XMLAnimType.BEAT;
+		loadSprite = loadSprite != null ? loadSprite : true;
 
 		return loadSpriteFromXML(new FunkinSprite(), node, parentFolder, defaultAnimType, loadSprite);
 	}

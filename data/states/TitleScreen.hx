@@ -84,7 +84,6 @@ function create() {
 	var splashTextArray:Array<String> = CoolUtil.coolTextFile(Paths.txt('titlescreen/splashtext'));
 	splashText = new KaraokeText(185, logo.y + logo.height - 10, 200, splashTextArray[FlxG.random.int(0, splashTextArray.length-1)], 16, true);
 	splashText.alignment = 'center';
-	splashText.font = Paths.font("Pixellari.ttf");
 	splashText.borderSize = 2;
 	splashText.angle = -10;
 	splashText.color = FlxG.random.color(0xFF8B8B8B, 0xFFFFFFFF, 1, false);

@@ -1,7 +1,7 @@
 <!DOCTYPE free-download-weeknd>
 <weeknd name="TUTORIAL" rating="easy" index="0" color="#FFFFFF">
 	<composition folder="menus/storyMode/">
-		<sprite name="banner" x="0" y="0" sprite="tutorial" antialiasing="false"/>
+		<sprite name="banner" x="0" y="0" sprite="tutorial" antialiasing="false" shader="player/icon"/>
 	</composition>
 
 	<song name="i-robot" display="i, robot"/>

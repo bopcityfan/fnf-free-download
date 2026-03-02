@@ -1,5 +1,5 @@
 import Xml;
-import funkin.backend.utils.XMLUtil;
+import funkin.backend.FunkinSprite.XMLAnimType;
 import funkin.backend.scripting.Script;
 import funkin.backend.scripting.DummyScript;
 import karaoke.backend.KaraokeText;
@@ -58,12 +58,16 @@ function create() {
 		weeknd = weeknd.split('.')[0];
 		var xml:Xml = Xml.parse(Assets.getText(Paths.xml('weeknds/${weeknd}'))).firstElement();
 
-		final index:Int = Std.parseInt(xml.get('index')) ?? 0;
+		var index:Int = Std.parseInt(xml.get('index'));
+		index = index != null ? index : 0;
+
+		var color:FlxColor = FlxColor.fromString(xml.get('color'));
+		color = color != null ? color : 0xFFFFFFFF
 
 		var data = {
 			xml: xml,
 			name: xml.get('name'),
-			color: FlxColor.fromString(xml.get('color')) ?? 0xFFFFFFFF,
+			color: color,
 			rating: xml.get('rating'),
 			songs: [
 				for (song in xml.elementsNamed('song')) {
@@ -95,7 +99,10 @@ function create() {
 			var spriteFunc:(sprNode:Xml)->Void = (sprNode:Xml) -> {
 				if (!sprNode.exists('sprite') || !sprNode.exists('name')) continue;
 
-				var spr:FunkinSprite = XMLUtil.createSpriteFromXML(sprNode, node.get('folder') ?? 'menus/storyMode/');
+				var folder:String = node.get('folder');
+				folder = folder != null ? folder : 'menus/storyMode/';
+
+				var spr:FunkinSprite = XMLHelper.createSpriteFromXML(sprNode, folder);
 				composition[spr.name] = spr;
 				spriteGroup.add(spr);
 			};

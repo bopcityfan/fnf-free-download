@@ -4,7 +4,7 @@
 		<sprite name="cyan" x="0" y="0" sprite="cyan" antialiasing="false"/>
 		<sprite name="cyanCDBoy" x="0" y="0" sprite="cyanCDBoy" antialiasing="false"/>
 
-		<sprite name="dude" x="0" y="0" sprite="dude" antialiasing="false"/>
+		<sprite name="dude" x="0" y="0" sprite="dude" antialiasing="false" shader="player/icon"/>
 	</composition>
 
 	<song name="girl-next-door" display="girl next door"/>

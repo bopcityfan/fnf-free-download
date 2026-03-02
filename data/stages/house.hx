@@ -197,7 +197,7 @@ function stepHit(s) {
 					dad.x += 120;
 					dad.y -= 80;
 
-					boyfriend.x -= 80;
+					boyfriend.x -= 60;
 					boyfriend.y -= 60;
 
 					camera.lock(camera.data[2].x, camera.data[2].y, true);
