@@ -9,7 +9,7 @@ enum DrawPassType {
 class SpriteExtension {
 	static public function setOffset(sprite:FlxSprite, x:Float = 0, y:Float = 0) {
 		x = x != null ? x : 0;
-		y = y != null ? y ; 0;
+		y = y != null ? y : 0;
 
 		if (sprite is Character) {
 			sprite.offset.set(-sprite.globalOffset.x + x, -sprite.globalOffset.y + y);
