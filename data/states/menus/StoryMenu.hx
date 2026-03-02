@@ -85,6 +85,10 @@ function create() {
 		spriteGroup.x = FlxG.width*index;
 		spriteGroup.y = 66;
 		add(spriteGroup);
+		// spriteGroup.onDraw = (group:FlxSpriteGroup) -> {
+		// 	trace('drawing');
+		// 	group.draw();
+		// }
 
 		var weekndScript:Script = Script.create(Paths.script('data/weeknds/${weeknd}'));
 		weekndScript.setParent(spriteGroup);

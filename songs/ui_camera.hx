@@ -1,5 +1,4 @@
 import Xml;
-import flixel.addons.util.FlxSimplex;
 
 function onSongStart() {
 	camZooming = true;
@@ -81,7 +80,7 @@ public function getCamValues(sl:StrumLine):{x:Float, y:Float, zoom:Float} {
 			zoom: 1
 		};
 		case 'boyfriend': {
-			x: 450,
+			x: 550,
 			y: 171,
 			zoom: 1
 		};

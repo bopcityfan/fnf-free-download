@@ -51,13 +51,9 @@ class XMLHelper {
 		if (node.exists('flipY')) spr.flipY = node.get('flipY') == true;
 		if (node.exists('playOnCountdown')) spr.skipNegativeBeats = node.get('playOnCountdown') == true;
 
-		if (node.exists('shader')) {
-			spr.shader = new CustomShader(node.get('shader'));
-		}
+		if (node.exists('shader')) spr.shader = new CustomShader(node.get('shader'));
 
-		if (node.exists('updateHitbox') && node.get('updateHitbox') == "true") {
-			spr.updateHitbox();
-		}
+		if (node.exists('updateHitbox') && node.get('updateHitbox') == "true") spr.updateHitbox();
 
 		if (node.exists('scroll')) {
 			var value:Float = Std.parseFloat(node.get('scroll'));
