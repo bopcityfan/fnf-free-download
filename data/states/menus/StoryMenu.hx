@@ -63,7 +63,7 @@ function create() {
 		index = index != null ? index : 0;
 
 		var color:FlxColor = FlxColor.fromString(xml.get('color'));
-		color = color != null ? color : 0xFFFFFFFF
+		color = color != null ? color : 0xFFFFFFFF;
 
 		var data = {
 			xml: xml,
