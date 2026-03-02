@@ -61,13 +61,6 @@ static function flash(cam:FlxCamera, data:{color:FlxColor, time:Float, force:Boo
 	}
 }
 
-static function playMenuMusic() {
-	if (FlxG.sound.music == null || !FlxG.sound.music.playing) {
-		CoolUtil.playMusic(Paths.music('menu'), true, 1, true, 110);
-		FlxG.sound.music.persist = true;
-	}
-}
-
 function new() {
 	if (FlxG.camera != null) {
 		FlxG.camera.bgColor = 0xFF000000;

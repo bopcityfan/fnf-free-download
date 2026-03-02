@@ -1,4 +1,5 @@
 import funkin.backend.system.Flags;
+import karaoke.backend.utils.KaraokeUtil;
 
 final optionList:Array<String> = ['StoryMenu', 'Freeplay', 'Settings'];
 
@@ -13,7 +14,7 @@ function set_curSelected(val:Int):Int {
 }
 
 function create() {
-	playMenuMusic();
+	KaraokeUtil.playMenuMusic();
 
 	bg = new FunkinSprite().loadGraphic(Paths.image('menus/backgrounds/dawn', null, true));
 	bg.scale.set(2, 2);

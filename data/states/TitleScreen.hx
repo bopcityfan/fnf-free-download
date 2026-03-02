@@ -1,6 +1,7 @@
 import flixel.text.FlxText.FlxTextFormat;
 import flixel.text.FlxText.FlxTextFormatMarkerPair;
 import flixel.group.FlxSpriteGroup;
+import karaoke.backend.utils.KaraokeUtil;
 import karaoke.backend.KaraokeText;
 import karaoke.backend.utils.ColorExtension;
 
@@ -38,7 +39,9 @@ function create() {
 		FlxG.sound.play(Paths.sound('menus/recordscratch'), 1, false, null, true, () -> {
 			new FlxTimer().start(0.25, () -> {
 				bing.alpha = 0.001;
-				new FlxTimer().start(0.5, function() {playMenuMusic();});
+				new FlxTimer().start(0.5, function() {
+					KaraokeUtil.playMenuMusic();
+				});
 			});
 		});
 	});

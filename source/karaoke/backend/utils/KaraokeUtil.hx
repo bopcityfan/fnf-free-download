@@ -6,4 +6,11 @@ class KaraokeUtil {
 			(Conductor.stepCrochet * (sections * 16)) * 0.001
 		);
 	}
+
+	public static function playMenuMusic():Void {
+		if (FlxG.sound.music == null || !FlxG.sound.music.playing) {
+			CoolUtil.playMusic(Paths.music('menu'), true, 1, true, 110);
+			FlxG.sound.music.persist = true;
+		}
+	}
 }

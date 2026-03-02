@@ -3,6 +3,7 @@ import funkin.backend.FunkinSprite.XMLAnimType;
 import funkin.backend.scripting.Script;
 import funkin.backend.scripting.DummyScript;
 import karaoke.backend.KaraokeText;
+import karaoke.backend.utils.KaraokeUtil;
 import karaoke.backend.utils.ColorExtension;
 import karaoke.backend.utils.XMLHelper;
 import flixel.group.FlxSpriteGroup;
@@ -24,7 +25,7 @@ function set_curSelected(val:Int):Int {
 }
 
 function create() {
-	playMenuMusic();
+	KaraokeUtil.playMenuMusic();
 
 	var bg:FunkinSprite = new FunkinSprite(-250).loadSprite(Paths.image('menus/backgrounds/mint'));
 	bg.scrollFactor.set();
