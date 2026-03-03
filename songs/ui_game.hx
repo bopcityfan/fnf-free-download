@@ -1,10 +1,11 @@
 import funkin.savedata.FunkinSave;
 
+public var flow:Float = 0;
+
 var speed:Float = 1;
 
 function create() {
-	if (playCutscenes)
-		cutscene = Paths.script('data/scripts/cutscene');
+	camGame.pixelPerfectRender = true;
 }
 
 function postCreate() {

@@ -12,6 +12,3 @@ Everything seen here (except *most* of the code) belongs to Tyler_mon, Funne, an
 [Codename Engine Discord Server](https://discord.gg/engUJd9RTA)
 
 [Forum Post (Codename Engine Discord Server)](https://discord.com/channels/860561967383445535/1187063802118799492)
-
-# **Fonts Used**
-[Pixellari](https://www.dafont.com/pixellari.font)

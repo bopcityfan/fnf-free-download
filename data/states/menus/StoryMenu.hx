@@ -98,14 +98,26 @@ function create() {
 
 		for (node in xml.elementsNamed('composition')) {
 			var spriteFunc:(sprNode:Xml)->Void = (sprNode:Xml) -> {
-				if (!sprNode.exists('sprite') || !sprNode.exists('name')) continue;
+				if (!sprNode.exists('sprite') || !sprNode.exists('name')) return;
 
 				var folder:String = node.get('folder');
 				folder = folder != null ? folder : 'menus/storyMode/';
 
 				var spr:FunkinSprite = XMLHelper.createSpriteFromXML(sprNode, folder);
+				var cancelled:Bool = false;
+				weekndScript.call('onSpriteNew', [{
+					cancel: () -> {cancelled = true;},
+					prevent: () -> {cancelled = true;},
+
+					sprite: spr
+				}]);
+
+				if (cancelled) return;
+
 				composition[spr.name] = spr;
 				spriteGroup.add(spr);
+
+				weekndScript.call('onSpriteAdd', [spr]);
 			};
 
 			for (sprNode in node.elementsNamed("sprite")) spriteFunc(sprNode);

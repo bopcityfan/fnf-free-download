@@ -15,7 +15,7 @@ function onNoteHit(event) {
 		if (!event.note.isSustainNote) {
 			flow += 0.05;
 			flow = FlxMath.bound(flow, 0, 1);
-			flowBar.percent = flow*100;
+			hud?.onFlowUpdate(flow);
 		}
 
 		event.healthGain = event.note.isSustainNote ? 0.02 : 0.05;
@@ -65,7 +65,7 @@ if (!FunkinSave.save.data.dxStyledStrums) {
 function onPlayerMiss(event) {
 	flow -= 0.1;
 	flow = FlxMath.bound(flow, 0, 1);
-	flowBar.percent = flow*100;
+	hud?.onFlowUpdate(flow);
 
 	event.healthGain = -(1+(4*(1-flow)))/50;
 	event.score = -50;

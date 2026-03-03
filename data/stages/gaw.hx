@@ -1,15 +1,15 @@
 // shut up vsc
 
 function create() {
-	noteskin = uiskin = "gaw";
+	noteskin = hudSkin = "gaw";
 }
 
-var colorSwapShader:CustomShader = new CustomShader("dude-colorswap");
+var colorSwapShader:CustomShader = new CustomShader("player/colorswap");
 function postCreate() {
 	camera.lock(200, 200, true);
 
 	ladyAndTheTramp.shader = colorSwapShader;
-	applyPlayerSkin(colorSwapShader, 'dude');
+	// applyPlayerSkin(colorSwapShader, 'dude');
 	ladyAndTheTramp.setColorTransform(1.25, 1.25, 1.25, 1, 0, 0, 0, 0);
 }
 
