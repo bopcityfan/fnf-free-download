@@ -10,11 +10,12 @@ using ColorExtension;
 using SpriteExtension;
 
 public var isNightTime:Bool = false;
+
 var sky:FunkinSprite;
 var houseLights:FunkinSprite;
-var theStupidThing1:FunkinSprite;
-var theStupidThing2:FunkinSprite;
-var dumbCircle:FunkinSprite;
+var leftLightShadow:FunkinSprite;
+var rightLightShadow:FunkinSprite;
+var spotlightCircle:FunkinSprite;
 
 var ladyDance:Character;
 
@@ -24,11 +25,12 @@ function create() {
 
 function postCreate() {
 	if (!isNightTime) {
-		insert(0, sky = new FunkinSprite().makeGraphic(FlxG.width, FlxG.height, 0xFF91CFDD));
+		sky = new FunkinSprite().makeGraphic(FlxG.width, FlxG.height, 0xFF91CFDD);
 		sky.scrollFactor.set();
 		sky.zoomFactor = 0;
+		insert(0, sky);
 	} else {
-		insert(0, sky = new FunkinSprite(0, -75).loadGraphic(Paths.image("game/stages/house/googlenightsky")));
+		sky = new FunkinSprite(0, -75).loadGraphic(Paths.image("game/stages/house/googlenightsky"));
 		sky.scrollFactor.set(0.5, 0.5);
 		sky.shader = new CustomShader("wiggleButWeird");
 		sky.shader.wIntensity = 0.025;
@@ -36,35 +38,40 @@ function postCreate() {
 		sky.shader.wSpeed = 1;
 		sky.shader.threeFuckingTextureCalls = false;
 		sky.setColorTransform(0.5, 0.2, 0.7, 1, 40, 40, 40, 0);
+		insert(0, sky);
 
-		insert(5, houseLights = new FunkinSprite());
-		houseLights.loadSprite(Paths.image("game/stages/house/lights"));
+		houseLights = new FunkinSprite().loadSprite(Paths.image("game/stages/house/lights"));
 		houseLights.animation.add("lights", !FunkinSave.save.data.epilepsy ? [0,1,2,3] : [0], 0, true, false, false);
 		houseLights.playAnim("lights", true);
+		insert(5, houseLights);
 
-		insert(6, cyan = new FunkinSprite(95, 104).loadGraphic(Paths.image("game/stages/house/cyan")));
+		cyan = new FunkinSprite(95, 104).loadGraphic(Paths.image("game/stages/house/cyan"));
+		insert(6, cyan);
 		cyan.kill();
 
-		insert(5, dumbCircle = new FunkinSprite().loadGraphic(Paths.image("game/stages/house/ididntwanttomakethisasprite")));
-		dumbCircle.screenCenter();
-		dumbCircle.x += 140;
-		dumbCircle.y += 80;
-		dumbCircle.antialiasing = false;
-		dumbCircle.alpha = 0.5;
+		spotlightCircle = new FunkinSprite().loadGraphic(Paths.image("game/stages/house/ididntwanttomakethisasprite"));
+		spotlightCircle.screenCenter();
+		spotlightCircle.x += 140;
+		spotlightCircle.y += 80;
+		spotlightCircle.antialiasing = false;
+		spotlightCircle.alpha = 0.5;
+		insert(5, spotlightCircle);
 
-		add(theStupidThing1 = new FunkinSprite().makeSolid(300, 500, 0xFF000000));
-		theStupidThing1.screenCenter();
-		theStupidThing1.x -= 120;
-		theStupidThing1.y -= 25;
-		theStupidThing1.angle = 12.5;
+		leftLightShadow = new FunkinSprite().makeSolid(300, 500, 0xFF000000);
+		leftLightShadow.screenCenter();
+		leftLightShadow.x -= 120;
+		leftLightShadow.y -= 25;
+		leftLightShadow.angle = 12.5;
+		add(leftLightShadow);
 
-		add(theStupidThing2 = new FunkinSprite().makeSolid(300, 500, 0xFF000000));
-		theStupidThing2.screenCenter();
-		theStupidThing2.x += 400;
-		theStupidThing2.y -= 25;
-		theStupidThing2.angle = -12.5;
+		rightLightShadow = new FunkinSprite().makeSolid(300, 500, 0xFF000000);
+		rightLightShadow.screenCenter();
+		rightLightShadow.x += 400;
+		rightLightShadow.y -= 25;
+		rightLightShadow.angle = -12.5;
+		add(rightLightShadow);
 
-		dumbCircle.alpha = theStupidThing1.alpha = theStupidThing2.alpha = 0;
+		spotlightCircle.alpha = leftLightShadow.alpha = rightLightShadow.alpha = 0;
 
 		for (name => spr in stage.stageSprites) {
 			spr.color = 0xFF261B33;
@@ -212,7 +219,7 @@ function stepHit(s) {
 						DrawPassType.LIGHTING({x: 0, y: -4}, [1,1,1,1], [0,0,0,0.5])
 					]);
 
-					dumbCircle.alpha = (theStupidThing1.alpha = theStupidThing2.alpha = 1) * 0.5;
+					spotlightCircle.alpha = (leftLightShadow.alpha = rightLightShadow.alpha = 1) * 0.5;
 
 					flash(camGame, {color: 0xFFFFFFFF, time: 0.1, force: true}, null);
 				case 528: flash(camGame, {color: 0xFFFFFFFF, time: 0.1, force: true}, null);
@@ -244,7 +251,7 @@ function stepHit(s) {
 						DrawPassType.SHADER(true, {x: 0, y: 0}, playerEyes)
 					]);
 
-					dumbCircle.alpha = theStupidThing1.alpha = theStupidThing2.alpha = 0;
+					spotlightCircle.alpha = leftLightShadow.alpha = rightLightShadow.alpha = 0;
 
 					dad.x = 232;
 					boyfriend.x = 503;
@@ -263,24 +270,26 @@ function onEvent(e) if (curSong == "stars" && e.event.name == "go off") {
 			case 0: [220, -61, 458];
 			case 1: [365, 84, 603];
 		};
-		dumbCircle.x = positions[0];
-		dumbCircle.y = 261;
-		dumbCircle.setGraphicSize(257,dumbCircle.height); dumbCircle.updateHitbox();
+		spotlightCircle.x = positions[0];
+		spotlightCircle.y = 261;
+		spotlightCircle.setGraphicSize(257, spotlightCircle.height);
+		spotlightCircle.updateHitbox();
 
-		theStupidThing1.x = positions[1];
-		theStupidThing1.y = -70;
+		leftLightShadow.x = positions[1];
+		leftLightShadow.y = -70;
 
-		theStupidThing2.x = positions[2];
-		theStupidThing2.y = -70;
+		rightLightShadow.x = positions[2];
+		rightLightShadow.y = -70;
 	} else {
-		dumbCircle.x = 229;
-		dumbCircle.y = 261;
-		dumbCircle.setGraphicSize(385,dumbCircle.height); dumbCircle.updateHitbox();
+		spotlightCircle.x = 229;
+		spotlightCircle.y = 261;
+		spotlightCircle.setGraphicSize(385, spotlightCircle.height);
+		spotlightCircle.updateHitbox();
 
-		theStupidThing1.x = -52;
-		theStupidThing1.y = -70;
+		leftLightShadow.x = -52;
+		leftLightShadow.y = -70;
 
-		theStupidThing2.x = 595;
-		theStupidThing2.y = -70;
+		rightLightShadow.x = 595;
+		rightLightShadow.y = -70;
 	}
 }
