@@ -8,8 +8,10 @@ import openfl.filters.BitmapFilter;
 class DebugInfo extends MusicBeatGroup {
 	public var fpsText:KaraokeText;
 	public var memoryText:KaraokeText;
-	public var versionText:KaraokeText;
 	public var timeScaleText:KaraokeText;
+
+	public var modVersionText:KaraokeText;
+	public var cneCommitText:KaraokeText;
 
 	override function new(X:Float = 0, Y:Float = 0, MaxSize:Int = 0) {
 		X ??= 0;
@@ -41,19 +43,28 @@ class DebugInfo extends MusicBeatGroup {
 		memoryText.onDraw = shadowDraw;
 		add(memoryText);
 
-		versionText = new KaraokeText(0, 0, 0, 'VERSION: ${Flags.customFlags['MOD_VERSION']}', 5, true);
-		versionText.color = 0xFFE6FF80;
-		versionText.font = Paths.font('Pixeled.ttf');
-		versionText.onDraw = shadowDraw;
-		add(versionText);
-
 		timeScaleText = new KaraokeText(0, 0, 0, 'TIMESCALE: ${FlxG.timeScale}', 5, true);
-		timeScaleText.color = 0xFF9BFF80;
+		timeScaleText.color = 0xFFE6FF80;
 		timeScaleText.font = Paths.font('Pixeled.ttf');
 		timeScaleText.onDraw = shadowDraw;
+		timeScaleText.visible = false;
 		add(timeScaleText);
 
-		final textArray:Array<KaraokeText> = [fpsText, memoryText, versionText, timeScaleText];
+		modVersionText = new KaraokeText(0, 0, 0, 'MOD VERSION: ${Flags.customFlags['MOD_VERSION']}', 5, true);
+		modVersionText.color = 0xFF9BFF80;
+		modVersionText.font = Paths.font('Pixeled.ttf');
+		modVersionText.onDraw = shadowDraw;
+		modVersionText.visible = false;
+		add(modVersionText);
+
+		cneCommitText = new KaraokeText(0, 0, 0, 'CNE COMMIT ${Flags.COMMIT_HASH}', 5, true);
+		cneCommitText.color = 0xFF7FFEB2;
+		cneCommitText.font = Paths.font('Pixeled.ttf');
+		cneCommitText.onDraw = shadowDraw;
+		cneCommitText.visible = false;
+		add(cneCommitText);
+
+		final textArray:Array<KaraokeText> = [fpsText, memoryText, timeScaleText, modVersionText, cneCommitText];
 		for (index => text in textArray) {
 			text.borderSize = 1;
 

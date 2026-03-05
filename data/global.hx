@@ -28,15 +28,25 @@ final redirectStates = [
 ];
 
 static var initialized:Bool = false;
-static var debugInfoToggle(default, set):Bool = false;
-static function set_debugInfoToggle(value:Bool):Bool {
-	if (value) {
-		makeDebugInfo();
-	} else {
-		removeDebugInfo();
+static var debugInfoMode(default, set):Int = 0;
+static function set_debugInfoMode(value:Int):Int {
+	value = FlxMath.wrap(value, 0, 2);
+
+	switch(value) {
+		case 0:
+			removeDebugInfo();
+		case 1:
+			makeDebugInfo();
+			debugInfo?.timeScaleText?.visible = false;
+			debugInfo?.modVersionText?.visible = false;
+			debugInfo?.cneCommitText?.visible = false;
+		case 2:
+			debugInfo?.timeScaleText?.visible = true;
+			debugInfo?.modVersionText?.visible = true;
+			debugInfo?.cneCommitText?.visible = true;
 	}
 
-	return debugInfoToggle = value;
+	return debugInfoMode = value;
 }
 
 static var fps:Float = 0;
@@ -142,7 +152,7 @@ function postStateSwitch() {
 	debugCamera.bgColor = 0;
 	FlxG.cameras.add(debugCamera, false);
 
-	if (debugInfoToggle) {
+	if (debugInfoMode >= 1) {
 		makeDebugInfo();
 	}
 
@@ -201,7 +211,7 @@ function update(elapsed:Float) {
 	updateMemory();
 
 	if (FlxG.state?.controls?.FPS_COUNTER) {
-		debugInfoToggle = !debugInfoToggle;
+		debugInfoMode += 1;
 	}
 }
 
@@ -219,5 +229,5 @@ function destroy() {
 	debugInfo.destroy();
 	debugInfo = null;
 
-	debugInfoToggle = null;
+	debugInfoMode = null;
 }
