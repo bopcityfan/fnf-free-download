@@ -87,8 +87,8 @@ class DefaultHud extends HudBase {
 		opponentIcon = new KaraokeIcon('${hudSkin}/strad');
 		add(opponentIcon);
 
-		playerIcon.y = downscroll ? healthBar.y - (playerIcon.height * 0.35) : healthBar.y - (playerIcon.height * 0.03515625);
-		opponentIcon.y = downscroll ? healthBar.y - (opponentIcon.height * 0.35) : healthBar.y - (opponentIcon.height * 0.03515625);
+		playerIcon.y = downscroll ? healthBar.y - (playerIcon.height * 0.35) : healthBar.y - (playerIcon.height / 2.25);
+		opponentIcon.y = downscroll ? healthBar.y - (opponentIcon.height * 0.35) : healthBar.y - (opponentIcon.height / 2.25);
 
 		playerIconShadow = new KaraokeIcon('${hudSkin}/dude');
 		playerIconShadow.color = 0xFF000000;
