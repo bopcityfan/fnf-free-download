@@ -71,7 +71,7 @@ public function getCamValues(sl:StrumLine):{x:Float, y:Float, zoom:Float} {
 		};
 		case 'dad': {
 			x: 265,
-			y: 171,
+			y: 172,
 			zoom: 1
 		};
 		case 'girlfriend': {
@@ -81,7 +81,7 @@ public function getCamValues(sl:StrumLine):{x:Float, y:Float, zoom:Float} {
 		};
 		case 'boyfriend': {
 			x: 550,
-			y: 171,
+			y: 172,
 			zoom: 1
 		};
 	};

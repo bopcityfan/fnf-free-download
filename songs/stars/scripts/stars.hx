@@ -58,11 +58,11 @@ function stepHit(step:Int) {
 				spr.visible = false;
 			}
 
-			dad.setDrawPass([
+			dad.setDrawPasses([
 				DrawPassType.COLOR(true, {x: 0, y: 0}, [0,0,0])
 			]);
 
-			boyfriend.setDrawPass([
+			boyfriend.setDrawPasses([
 				DrawPassType.SHADER(false, {x: 0, y: 0}, playerSkin),
 				DrawPassType.COLOR(true, {x: 0, y: 0}, [0,0,0])
 			]);
@@ -101,11 +101,11 @@ function stepHit(step:Int) {
 			camera.lock(camera.data[2].x, camera.data[2].y, true);
 			camera.snap();
 
-			dad.setDrawPass([
+			dad.setDrawPasses([
 				DrawPassType.LIGHTING({x: 0, y: -4}, [1,1,1,1], [0,0,0,0.5])
 			]);
 
-			boyfriend.setDrawPass([
+			boyfriend.setDrawPasses([
 				DrawPassType.SHADER(false, {x: 0, y: 0}, playerSkin),
 				DrawPassType.LIGHTING({x: 0, y: -4}, [1,1,1,1], [0,0,0,0.5])
 			]);
@@ -122,19 +122,19 @@ function stepHit(step:Int) {
 
 			ladyDance.revive();
 			ladyDance.x -= 85;
-			ladyDance.setDrawPass([
+			ladyDance.setDrawPasses([
 				DrawPassType.SHADER(false, {x: 0, y: 0}, ladySkin),
 				DrawPassType.LIGHTING({x: 0, y: -4}, [1,1,1,1], [0,0,0,0.5])
 			]);
 
 			flash(camGame, {color: 0xFFFFFFFF, time: 0.1, force: true}, null);
 		case 640:
-			dad.setDrawPass([
+			dad.setDrawPasses([
 				DrawPassType.LIGHTING({x: 4, y: 0}, nightLightingColor, nightShadowColor)
 			]);
 
 			playerEyes.colorReplaceEyes = [1, 1, 1];
-			boyfriend.setDrawPass([
+			boyfriend.setDrawPasses([
 				DrawPassType.SHADER(false, {x: 0, y: 0}, playerSkin),
 				DrawPassType.LIGHTING({x: -4, y: 0}, nightLightingColor, nightShadowColor),
 				DrawPassType.SHADER(true, {x: 0, y: 0}, playerEyes)

@@ -20,21 +20,21 @@ function stepHit(step:Int) {
 				spr.color = duskColor;
 			}
 
-			dad.setDrawPass([
+			dad.setDrawPasses([
 				DrawPassType.LIGHTING({x: 4, y: -4}, duskLightingColor, duskShadowColor)
 			]);
 
-			boyfriend.setDrawPass([
+			boyfriend.setDrawPasses([
 				DrawPassType.SHADER(false, {x: 0, y: 0}, playerSkin),
 				DrawPassType.LIGHTING({x: -4, y: -4}, duskLightingColor, duskShadowColor)
 			]);
 
-			gf.setDrawPass([
+			gf.setDrawPasses([
 				DrawPassType.SHADER(false, {x: 0, y: 0}, ladySkin),
 				DrawPassType.LIGHTING({x: 0, y: -4}, duskLightingColor, duskShadowColor),
 			]);
 
-			ladySpeaker?.setDrawPass([
+			ladySpeaker?.setDrawPasses([
 				DrawPassType.LIGHTING({x: 0, y: -4}, duskLightingColor, duskShadowColor)
 			]);
 			if (speakerLight != null) {

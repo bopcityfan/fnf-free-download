@@ -1,0 +1,14 @@
+{
+	"opponentModeAllowed": false,
+	"icon": "cyan",
+	"difficulties": [
+		"normal"
+	],
+	"color": "#9271FD",
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"displayName": "girl next door",
+	"beatsPerMeasure": 4,
+	"needsVoices": false,
+	"bpm": 158
+}

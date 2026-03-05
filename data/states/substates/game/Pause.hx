@@ -29,7 +29,7 @@ function create() {
 	FlxG.sound.play(Paths.sound("menus/recordscratch"), 0.8);
 
 	// stupid fucking way of doing this but idc
-	var pausedTxt = new KaraokeText(12, 4, FlxG.width, "PAUSED", 48, true);
+	var pausedTxt = new KaraokeText(12, 64, FlxG.width, "PAUSED", 64, true);
 	pausedTxt.borderSize = 2;
 
 	var pausedTxtNoOutline = new KaraokeText(pausedTxt.x, pausedTxt.y, pausedTxt.fieldWidth, pausedTxt.text, pausedTxt.size, false);

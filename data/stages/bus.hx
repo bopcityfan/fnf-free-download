@@ -19,14 +19,8 @@ function create() {
 	insert(0, backbustrees);
 	backbustrees.velocity.x = (backbus.velocity.x*0.25)*busSpeed;
 
-	insert(0, sky = new FunkinSprite().makeGraphic(FlxG.width, FlxG.height, 0xFFC0C0C0));
+	sky = new FunkinSprite().makeGraphic(FlxG.width, FlxG.height, 0xFFC0C0C0);
 	sky.scrollFactor.set();
 	sky.zoomFactor = 0;
-}
-
-function postCreate() {
-	camera.pos[0].x += 93;
-	camera.pos[1].x -= 64;
-	camera.pos[1].y += 5;
-	// camera.pos[]
+	insert(0, sky);
 }

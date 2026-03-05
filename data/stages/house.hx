@@ -45,23 +45,23 @@ function postCreate() {
 			spr.color = 0xFF261B33;
 		}
 
-		dad.setDrawPass([
+		dad.setDrawPasses([
 			DrawPassType.LIGHTING({x: 4, y: 0}, nightLightingColor, nightShadowColor)
 		]);
 
 		playerEyes.colorReplaceEyes = 0xFFFFFFFF.vec3();
-		boyfriend.setDrawPass([
+		boyfriend.setDrawPasses([
 			DrawPassType.SHADER(false, {x: 0, y: 0}, playerSkin),
 			DrawPassType.LIGHTING({x: -4, y: 0}, nightLightingColor, nightShadowColor),
 			DrawPassType.SHADER(true, {x: 0, y: 0}, playerEyes)
 		]);
 
-		gf.setDrawPass([
+		gf.setDrawPasses([
 			DrawPassType.SHADER(false, {x: 0, y: 0}, ladySkin),
 			DrawPassType.LIGHTING({x: 0, y: 4}, nightLightingColor, nightShadowColor),
 		]);
 
-		ladySpeaker?.setDrawPass([
+		ladySpeaker?.setDrawPasses([
 			DrawPassType.LIGHTING({x: 0, y: 4}, nightLightingColor, nightShadowColor)
 		]);
 		if (speakerLight != null) {

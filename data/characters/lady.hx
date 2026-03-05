@@ -32,8 +32,9 @@ var firstFrame:Bool = true;
 function update(elapsed:Float) {
 	if (firstFrame) {
 		firstFrame = false;
-		state.insert(state.members.indexOf(this), ladySpeaker);
-		state.insert(state.members.indexOf(this), speakerLightSpr);
+
+		FlxG.state.insert(FlxG.state.members.indexOf(this), ladySpeaker);
+		FlxG.state.insert(FlxG.state.members.indexOf(ladySpeaker)+1, speakerLightSpr);
 	}
 	ladySpeaker.setPosition(x - (ladySpeaker.width*0.2), y + 77);
 	speakerLightSpr.setPosition(x - (speakerLightSpr.width*0.2), y);

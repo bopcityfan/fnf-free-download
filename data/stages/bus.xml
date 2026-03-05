@@ -5,9 +5,9 @@
 	<sprite name="busback" x="64" y="-24" sprite="busback" antialiasing="false"/>
 	<sprite name="buspeople" x="64" y="-24" sprite="buspeople" antialiasing="false"/>
 
-	<girlfriend x="418" y="107" scroll="1"/>
+	<girlfriend x="418" y="107" scroll="1" camx="450" camy="176"/>
 	<sprite name="busow" x="368" y="224" sprite="busow" antialiasing="false"/>
 
-	<dad x="283" y="75"/>
-	<boyfriend x="515" y="177"/>
+	<dad x="283" y="75" camx="358" camy="176"/>
+	<boyfriend x="515" y="177" camx="532" camy="190"/>
 </stage>
