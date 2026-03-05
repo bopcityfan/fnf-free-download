@@ -13,7 +13,14 @@ var dudeDance:FunkinSprite;
 var danceBreak:FunkinSprite;
 var tunnel:FunkinSprite;
 
+var blueOverlay:FunkinSprite;
+
 var inTunnel:Bool = false;
+var funkyMode(default, set):Bool = false;
+function set_funkyMode(value:Bool) {
+	blueOverlay?.visible = value;
+	return funkyMode = value;
+}
 
 function postCreate() {
 	ladyDance = new FunkinSprite(boyfriend.x - 50, boyfriend.y - 65);
@@ -56,6 +63,15 @@ function postCreate() {
 	tunnel = new FunkinSprite(650, 66);
 	tunnel.loadSprite(Paths.image('game/stages/bus/girl-next-door/bigfuckintunnel'));
 	insert(5, tunnel);
+	tunnel.visible = false;
+
+	blueOverlay = new FunkinSprite().makeSolid(gameSize.X + 50, gameSize.Y + 50, 0xFFCEFAFF);
+	blueOverlay.scrollFactor.set();
+	blueOverlay.zoomFactor = 0;
+	blueOverlay.screenCenter();
+	blueOverlay.blend = 9;
+	add(blueOverlay);
+	blueOverlay.visible = false;
 }
 
 var timer:Float = 0;
@@ -80,7 +96,32 @@ function stepHit(step:Int) {
 		case 576:
 			camGame.flash(0xFFFFFFFF, 0.001, null, true);
 			camGame.fade(0xFFFFFFFF, KaraokeUtil.songTimeToSeconds(0, 1, 0), true, null, true);
+
+			funkyMode = true;
+			defaultCamZoom = 1.02;
+		case 688:
+			funkyMode = false;
+			camGame.angle = 0;
+
+			camera.lock(camera.data[0].x, camera.data[0].y);
+			camera.snap();
+
+			camGame.zoom = defaultCamZoom = 2;
+		case 704:
+			camera.unlock();
+			funkyMode = true;
+
+			defaultCamZoom = 1.02;
 	}
+}
+
+function beatHit(beat:Int) {
+	if (!funkyMode) {
+		return;
+	}
+
+	camGame.angle = camGame.angle == 0 ? 1 : -camGame.angle;
+	camGame.zoom += 0.02;
 }
 
 function exitTunnel() {
@@ -112,7 +153,7 @@ function exitTunnel() {
 }
 
 function enterTunnel() {
-	inTunnel = true;
+	tunnel.visible = inTunnel = true;
 
 	for (sprite in stage.stageSprites) {
 		FlxTween.color(sprite, 0.25, 0xFFFFFFFF, 0xFF000000);

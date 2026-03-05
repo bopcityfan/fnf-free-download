@@ -19,8 +19,9 @@ function create() {
 	insert(0, backbustrees);
 	backbustrees.velocity.x = (backbus.velocity.x*0.25)*busSpeed;
 
-	sky = new FunkinSprite().makeGraphic(FlxG.width, FlxG.height, 0xFFC0C0C0);
+	sky = new FunkinSprite().makeGraphic(FlxG.width + 50, FlxG.height + 50, 0xFFC0C0C0);
 	sky.scrollFactor.set();
 	sky.zoomFactor = 0;
+	sky.screenCenter();
 	insert(0, sky);
 }

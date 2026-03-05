@@ -203,7 +203,9 @@ function update(elapsed:Float) {
 	if (FlxG.state?.controls?.FPS_COUNTER) {
 		debugInfoToggle = !debugInfoToggle;
 	}
+}
 
+function postUpdate(elapsed:Float) {
 	debugInfo?.update(elapsed);
 }
 

@@ -9,6 +9,7 @@ class DebugInfo extends MusicBeatGroup {
 	public var fpsText:KaraokeText;
 	public var memoryText:KaraokeText;
 	public var versionText:KaraokeText;
+	public var timeScaleText:KaraokeText;
 
 	override function new(X:Float = 0, Y:Float = 0, MaxSize:Int = 0) {
 		X ??= 0;
@@ -34,17 +35,25 @@ class DebugInfo extends MusicBeatGroup {
 		fpsText.onDraw = shadowDraw;
 		add(fpsText);
 
-		memoryText = new KaraokeText(0, 0, 0, 'MEM: ${CoolUtil.getSizeString(memory)} / ${CoolUtil.getSizeString(memoryPeak)}', 8, true);
+		memoryText = new KaraokeText(0, 0, 0, 'MEMORY: ${CoolUtil.getSizeString(memory)} / ${CoolUtil.getSizeString(memoryPeak)}', 5, true);
 		memoryText.color = 0xFFFFCB80;
+		memoryText.font = Paths.font('Pixeled.ttf');
 		memoryText.onDraw = shadowDraw;
 		add(memoryText);
 
-		versionText = new KaraokeText(0, 0, 0, 'VERSION: ${Flags.customFlags['MOD_VERSION']}', 8, true);
+		versionText = new KaraokeText(0, 0, 0, 'VERSION: ${Flags.customFlags['MOD_VERSION']}', 5, true);
 		versionText.color = 0xFFE6FF80;
+		versionText.font = Paths.font('Pixeled.ttf');
 		versionText.onDraw = shadowDraw;
 		add(versionText);
 
-		final textArray:Array<KaraokeText> = [fpsText, memoryText, versionText];
+		timeScaleText = new KaraokeText(0, 0, 0, 'TIMESCALE: ${FlxG.timeScale}', 5, true);
+		timeScaleText.color = 0xFF9BFF80;
+		timeScaleText.font = Paths.font('Pixeled.ttf');
+		timeScaleText.onDraw = shadowDraw;
+		add(timeScaleText);
+
+		final textArray:Array<KaraokeText> = [fpsText, memoryText, versionText, timeScaleText];
 		for (index => text in textArray) {
 			text.borderSize = 1;
 
@@ -53,12 +62,15 @@ class DebugInfo extends MusicBeatGroup {
 			}
 
 			final lastText:KaraokeText = textArray[index-1];
-			text.y = lastText.y + (lastText.height * 0.75);
+			final verticalOffset:Float = index != 1 ? lastText.height * 0.6 : lastText.height * 0.7;
+
+			text.y = lastText.y + verticalOffset;
 		}
 	}
 
 	public function update(elapsed:Float) {
 		fpsText.text = 'FPS: ${Std.string(Math.round(fps))}';
-		memoryText.text = 'MEM: ${CoolUtil.getSizeString(memory)} / ${CoolUtil.getSizeString(memoryPeak)}';
+		memoryText.text = 'MEMORY: ${CoolUtil.getSizeString(memory)} / ${CoolUtil.getSizeString(memoryPeak)}';
+		timeScaleText.text = 'TIMESCALE: ${FlxG.timeScale}';
 	}
 }

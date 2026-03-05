@@ -98,7 +98,7 @@ function stepHit(step:Int) {
 			boyfriend.x -= 60;
 			boyfriend.y -= 60;
 
-			camera.lock(camera.data[2].x, camera.data[2].y, true);
+			camera.lock(camera.data[2].x, camera.data[2].y);
 			camera.snap();
 
 			dad.setDrawPasses([

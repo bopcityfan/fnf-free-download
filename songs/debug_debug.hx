@@ -8,7 +8,7 @@ if (!Options.devMode) {
 
 var speed:Float = 1;
 
-function postUpdate(e:Float) {
+function update(e:Float) {
 	if (FlxG.keys.justPressed.END) {
 		endSong();
 		FlxG.timeScale = inst.pitch = vocals.pitch = speed = 1;

@@ -1,18 +1,20 @@
 <!DOCTYPE codename-engine-character>
-<character x="5" y="15" antialiasing="false" holdTime="8" camx="-74" camy="63" isPlayer="false" flipX="false">
-	<anim x="0" loop="false" y="0" fps="12" anim="spr_cyanidle" name="idle"/>
-	<anim x="10" loop="false" y="-22" fps="12" anim="spr_cyanleft_" name="singLEFT"/>
-	<anim x="43" loop="false" y="-45" fps="12" anim="spr_cyandown_" name="singDOWN"/>
-	<anim x="10" loop="false" y="4" fps="12" anim="spr_cyanup_" name="singUP"/>
-	<anim x="6" loop="false" y="-4" fps="12" anim="spr_cyanright_" name="singRIGHT"/>
-	<anim x="6" loop="false" y="0" fps="12" anim="spr_cyanleftalt_" name="singLEFT-alt"/>
-	<anim x="-5" loop="false" y="-10" fps="12" anim="spr_cyandownalt_" name="singDOWN-alt"/>
-	<anim x="5" loop="false" y="5" fps="12" anim="spr_cyanupalt_" name="singUP-alt"/>
-	<anim x="-1" loop="false" y="0" fps="12" anim="spr_cyanrightalt_" name="singRIGHT-alt"/>
-	<anim x="1" loop="false" y="-15" fps="12" anim="spr_cyanayy" name="ayy"/>
-	<anim x="-2" loop="false" y="-3" fps="12" anim="spr_cyanpause" name="paused"/>
-	<anim x="0" loop="false" y="-11" fps="12" anim="spr_cyandanceleftup" name="danceleftup"/>
-	<anim x="-5" loop="false" y="-21" fps="12" anim="spr_cyandanceleftdown" name="danceleftdown"/>
-	<anim x="14" loop="false" y="-11" fps="12" anim="spr_cyandancerightup" name="dancerightup"/>
-	<anim x="7" loop="false" y="-24" fps="12" anim="spr_cyandancerightdown" name="dancerightdown"/>
+<character x="5" y="15" antialiasing="false" camx="-74" camy="63" icon="cyan" holdTime="8">
+	<anim name="idle" anim="spr_cyanidle" fps="12"/>
+	<anim name="singLEFT" anim="spr_cyanleft_" x="10" y="-22" fps="12"/>
+	<anim name="singDOWN" anim="spr_cyandown_" x="43" y="-45" fps="12"/>
+	<anim name="singUP" anim="spr_cyanup_" x="10" y="4" fps="12"/>
+	<anim name="singRIGHT" anim="spr_cyanright_" x="6" y="-4" fps="12"/>
+	<anim name="singLEFT-alt" anim="spr_cyanleftalt_" x="6" fps="12"/>
+	<anim name="singDOWN-alt" anim="spr_cyandownalt_" x="-5" y="-10" fps="12"/>
+	<anim name="singUP-alt" anim="spr_cyanupalt_" x="5" y="5" fps="12"/>
+	<anim name="singRIGHT-alt" anim="spr_cyanrightalt_" x="-1" fps="12"/>
+	<anim name="ayy" anim="spr_cyanayy" x="1" y="-15" fps="12"/>
+	<anim name="paused" anim="spr_cyanpause" x="-2" y="-3" fps="12"/>
+	<anim name="danceleftup" anim="spr_cyandanceleftup" y="-11" fps="12"/>
+	<anim name="danceleftdown" anim="spr_cyandanceleftdown" x="-5" y="-21" fps="12"/>
+	<anim name="dancerightup" anim="spr_cyandancerightup" x="14" y="-11" fps="12"/>
+	<anim name="dancerightdown" anim="spr_cyandancerightdown" x="7" y="-24" fps="12"/>
+	<anim name="snoreUP" anim="spr_cyansnoreup" x="11" y="-17" fps="12"/>
+	<anim name="snoreDOWN" anim="spr_cyansnoredown" x="10" y="-21"/>
 </character>

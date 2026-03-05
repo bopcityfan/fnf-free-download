@@ -180,10 +180,54 @@
 		},
 		{
 			"params": [
-				0
+				0,
+				true,
+				4,
+				"CLASSIC",
+				"In"
 			],
 			"time": 65316.4556962025,
 			"name": "Camera Movement"
+		},
+		{
+			"params": [
+				0,
+				"snoreUP",
+				true,
+				"SING"
+			],
+			"time": 65316.4556962025,
+			"name": "Play Animation"
+		},
+		{
+			"params": [
+				0,
+				"snoreDOWN",
+				true,
+				"SING"
+			],
+			"name": "Play Animation",
+			"time": 65696.2025316456
+		},
+		{
+			"params": [
+				0,
+				"snoreUP",
+				true,
+				"SING"
+			],
+			"time": 66075.9493670886,
+			"name": "Play Animation"
+		},
+		{
+			"params": [
+				0,
+				"snoreDOWN",
+				true,
+				"SING"
+			],
+			"name": "Play Animation",
+			"time": 66455.6962025316
 		},
 		{
 			"params": [

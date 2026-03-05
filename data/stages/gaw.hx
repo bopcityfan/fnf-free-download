@@ -6,7 +6,7 @@ function create() {
 
 var colorSwapShader:CustomShader = new CustomShader("player/colorswap");
 function postCreate() {
-	camera.lock(200, 200, true);
+	camera.lock(200, 200);
 
 	ladyAndTheTramp.shader = colorSwapShader;
 	// applyPlayerSkin(colorSwapShader, 'dude');
