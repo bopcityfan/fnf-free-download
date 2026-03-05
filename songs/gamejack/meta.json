@@ -1,0 +1,14 @@
+{
+	"opponentModeAllowed": false,
+	"icon": "cd-boy",
+	"difficulties": [
+		"normal"
+	],
+	"color": "#9271FD",
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"displayName": "gamejack",
+	"beatsPerMeasure": 4,
+	"needsVoices": false,
+	"bpm": 180
+}

@@ -1,13 +1,9 @@
 <!DOCTYPE codename-engine-character>
-<character antialiasing="false" holdTime="8" flipX="false" isPlayer="false">
-	<anim x="0" loop="false" y="0" fps="12" anim="spr_cdboyidle_" name="idle"/>
-	<anim x="0" loop="false" y="0" fps="12" anim="spr_cdboyleft_" name="singLEFT"/>
-	<anim x="0" loop="false" y="0" fps="12" anim="spr_cdboydown_" name="singDOWN"/>
-	<anim x="0" loop="false" y="0" fps="12" anim="spr_cdboyup_" name="singUP"/>
-	<anim x="0" loop="false" y="0" fps="12" anim="spr_cdboyright_" name="singRIGHT"/>
-	<anim x="0" loop="false" y="0" fps="12" anim="spr_cdboypause_" name="singLEFT-alt"/>
-	<anim x="0" loop="false" y="0" fps="12" anim="spr_cdboypause_" name="singDOWN-alt"/>
-	<anim x="0" loop="false" y="0" fps="12" anim="spr_cdboypause_" name="singUP-alt"/>
-	<anim x="0" loop="false" y="0" fps="12" anim="spr_cdboypause_" name="singRIGHT-alt"/>
-	<anim x="0" loop="false" y="0" fps="12" anim="spr_cdboypause_" name="paused"/>
+<character y="40" sprite="cdboy/cdboyHead" antialiasing="false" holdTime="8">
+	<anim name="idle" anim="spr_cdboyidle_" fps="12"/>
+	<anim name="singLEFT" anim="spr_cdboyleft_" x="10" y="-8" fps="12"/>
+	<anim name="singDOWN" anim="spr_cdboydown_" x="1" y="-19" fps="12"/>
+	<anim name="singUP" anim="spr_cdboyup_" x="3" y="11" fps="12"/>
+	<anim name="singRIGHT" anim="spr_cdboyright_" x="-5" y="-2" fps="12"/>
+	<anim name="paused" anim="spr_cdboypause_" x="6" y="-11" fps="12"/>
 </character>

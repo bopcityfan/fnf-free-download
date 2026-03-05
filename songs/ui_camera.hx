@@ -40,8 +40,6 @@ function postCreate() {
 
 	camera.snap();
 	camGame.followLerp = 0.02;
-
-	camGame.pixelPerfectRender = true;
 }
 
 function postUpdate(elapsed:Float) {

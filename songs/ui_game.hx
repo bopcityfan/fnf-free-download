@@ -4,10 +4,6 @@ public var flow:Float = 0;
 
 var speed:Float = 1;
 
-function create() {
-	camGame.pixelPerfectRender = true;
-}
-
 function postCreate() {
 	camZoomingStrength = 0;
 

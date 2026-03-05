@@ -31,21 +31,6 @@ static var initialized:Bool = false;
 static var debugInfoMode(default, set):Int = 0;
 static function set_debugInfoMode(value:Int):Int {
 	value = FlxMath.wrap(value, 0, 2);
-
-	switch(value) {
-		case 0:
-			removeDebugInfo();
-		case 1:
-			makeDebugInfo();
-			debugInfo?.timeScaleText?.visible = false;
-			debugInfo?.modVersionText?.visible = false;
-			debugInfo?.cneCommitText?.visible = false;
-		case 2:
-			debugInfo?.timeScaleText?.visible = true;
-			debugInfo?.modVersionText?.visible = true;
-			debugInfo?.cneCommitText?.visible = true;
-	}
-
 	return debugInfoMode = value;
 }
 
@@ -152,9 +137,7 @@ function postStateSwitch() {
 	debugCamera.bgColor = 0;
 	FlxG.cameras.add(debugCamera, false);
 
-	if (debugInfoMode >= 1) {
-		makeDebugInfo();
-	}
+	updateDebugInfo();
 
 	FlxG.cameras.cameraAdded.add(onCamAdd);
 }
@@ -175,6 +158,27 @@ function removeDebugInfo() {
 	FlxG.state.remove(debugInfo);
 	debugInfo.destroy();
 	debugInfo = null;
+}
+
+function updateDebugInfo() {
+	switch(debugInfoMode) {
+		case 0:
+			removeDebugInfo();
+		case 1:
+			removeDebugInfo();
+			makeDebugInfo();
+
+			debugInfo.timeScaleText.visible = false;
+			debugInfo.modVersionText.visible = false;
+			debugInfo.cneCommitText.visible = false;
+		case 2:
+			removeDebugInfo();
+			makeDebugInfo();
+
+			debugInfo.timeScaleText.visible = true;
+			debugInfo.modVersionText.visible = true;
+			debugInfo.cneCommitText.visible = true;
+	}
 }
 
 function updateFPS() {
@@ -212,6 +216,7 @@ function update(elapsed:Float) {
 
 	if (FlxG.state?.controls?.FPS_COUNTER) {
 		debugInfoMode += 1;
+		updateDebugInfo();
 	}
 }
 

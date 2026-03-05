@@ -34,7 +34,6 @@ function create() {
 function postCreate() {
 	wipeBaseContent();
 
-	camHUD.pixelPerfectRender = true;
 	canPause = false;
 	for (sl in strumLines.members) {
         for (note in sl.notes.members) {

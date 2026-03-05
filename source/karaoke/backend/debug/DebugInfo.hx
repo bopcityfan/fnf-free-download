@@ -57,7 +57,7 @@ class DebugInfo extends MusicBeatGroup {
 		modVersionText.visible = false;
 		add(modVersionText);
 
-		cneCommitText = new KaraokeText(0, 0, 0, 'CNE COMMIT ${Flags.COMMIT_HASH}', 5, true);
+		cneCommitText = new KaraokeText(0, 0, 0, 'CNE COMMIT: ${Flags.COMMIT_HASH}', 5, true);
 		cneCommitText.color = 0xFF7FFEB2;
 		cneCommitText.font = Paths.font('Pixeled.ttf');
 		cneCommitText.onDraw = shadowDraw;
