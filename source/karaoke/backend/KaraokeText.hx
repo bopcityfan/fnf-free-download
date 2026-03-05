@@ -26,15 +26,12 @@ class KaraokeText extends FunkinText {
 	}
 
 	public function new(X:Float, Y:Float, FieldWidth:Float = 0, ?Text:String, Size:Int = 16, Border:Bool = false) {
-		if (Text == null) {
-			Text = '';
-		}
-		if (Size == null) {
-			Size = 16;
-		}
-		if (Border == null) {
-			Border = false;
-		}
+		X ??= 0;
+		Y ??= 0;
+		FieldWidth ??= 0;
+		Text ??= '';
+		Size ??= 16;
+		Border ??= false;
 
 		super(X, Y, FieldWidth, Text, Size, Border);
 
