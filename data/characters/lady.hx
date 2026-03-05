@@ -9,7 +9,8 @@ static var speakerInterval:Int = 2;
 static var speakerLight:Bool = false;
 
 static var ladySkin:CustomShader;
-function postCreate() {
+
+function create() {
 	ladySpeaker = new FunkinSprite();
 	ladySpeaker.frames = Paths.getFrames("game/stages/speaker");
 	ladySpeaker.animation.add("hi", !FunkinSave.save.data.epilepsy ? [0, 1, 2, 3] : [0], 0, true, false, false);
@@ -21,6 +22,10 @@ function postCreate() {
 	speakerLightSpr.playAnim("hi", true);
 
 	shader = ladySkin = new CustomShader("lady/colorswap");
+
+	speakerAuto ??= true;
+	speakerInterval ??= 2;
+	speakerLight ??= false;
 }
 
 var firstFrame:Bool = true;

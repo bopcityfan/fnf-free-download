@@ -1,0 +1,122 @@
+import funkin.backend.utils.FunkinParentDisabler;
+import funkin.editors.charter.Charter;
+import karaoke.backend.KaraokeText;
+
+var itemArray:Array<KaraokeText> = [];
+var pauseCam:FlxCamera;
+var menuItems = ['Resume', 'Restart', 'Controls', 'Options', 'Quit'];
+var curSelected:Int = 0;
+var parentDisabler:FunkinParentDisabler;
+// var pauseMusic:FlxSound;
+
+function create() {
+	FlxG.state.persistentUpdate = false;
+	FlxG.state.persistentDraw = true;
+	FlxG.state.paused = true;
+
+	parentDisabler = new FunkinParentDisabler();
+	add(parentDisabler);
+
+	// pauseMusic = FlxG.sound.load(Paths.music('breakfast'), 0, true);
+	// pauseMusic.persist = false;
+	// pauseMusic.group = FlxG.sound.defaultMusicGroup;
+	// pauseMusic.play(false, FlxG.random.int(0, Std.int(pauseMusic.length / 2)));
+
+	pauseCam = new FlxCamera();
+	pauseCam.bgColor = 0x9D000000;
+	FlxG.cameras.add(pauseCam, false);
+
+	FlxG.sound.play(Paths.sound("menus/recordscratch"), 0.8);
+
+	// stupid fucking way of doing this but idc
+	var pausedTxt = new KaraokeText(12, 4, FlxG.width, "PAUSED", 48, true);
+	pausedTxt.borderSize = 2;
+
+	var pausedTxtNoOutline = new KaraokeText(pausedTxt.x, pausedTxt.y, pausedTxt.fieldWidth, pausedTxt.text, pausedTxt.size, false);
+	pausedTxtNoOutline.gradient = [0xFFFFFFFF, 0xFFD5D9EA];
+	pausedTxtNoOutline.gradientEnabled = true;
+
+	for (i in [pausedTxt, pausedTxtNoOutline]) {
+		i.cameras = [pauseCam];
+		add(i);
+	}
+
+	for (index => line in menuItems) {
+		final lastHeight:Float = (CoolUtil.last(itemArray) == null ? 0 : CoolUtil.last(itemArray).height);
+		final verticalOffset:Float = 145;
+
+		var text = new KaraokeText(12, verticalOffset + ((lastHeight * 0.9) * itemArray.length), FlxG.width, line, 16, true);
+		text.cameras = [pauseCam];
+		text.borderSize = 2;
+		text.alpha = curSelected == index ? 1 : 0.5;
+		add(text);
+
+		itemArray.push(text);
+	}
+}
+
+function changeItem(value:Int) {
+	curSelected = FlxMath.wrap(value, 0, menuItems.length-1);
+
+	for (index => spr in itemArray) {
+		spr.alpha = curSelected == index ? 1 : 0.5;
+	}
+}
+
+function selectItem(selected:String) {
+	switch(selected) {
+		case 'Resume':
+			close();
+		case 'Restart':
+			parentDisabler.reset();
+			FlxG.resetState();
+		case 'Controls':
+			trace('not implemented yet');
+		case 'Options':
+			trace('not implemented yet');
+			// fromGame = true;
+			// FlxG.switchState(new ModState('menus/Settings'));
+		case 'Quit':
+			fromGame = true;
+
+			if (PlayState.isStoryMode)
+				FlxG.switchState(new StoryMenuState());
+			if (PlayState.chartingMode)
+				FlxG.switchState(new Charter(PlayState.SONG.meta.name, PlayState.difficulty, false));
+			if (!PlayState.isStoryMode && !PlayState.chartingMode)
+				FlxG.switchState(new FreeplayState());
+	}
+}
+
+function update(elapsed:Float) {
+	if (controls.BACK) {
+		close();
+		return;
+	}
+
+	// if (pauseMusic.volume < 0.5)
+	// 	pauseMusic.volume += 0.01 * elapsed;
+
+	if (controls.UP_P) {
+		changeItem(curSelected == 0 ? menuItems.length-1 : curSelected - 1);
+	}
+
+	if (controls.DOWN_P) {
+		changeItem(curSelected == menuItems.length-1 ? 0 : curSelected + 1);
+	}
+
+	if (controls.ACCEPT) {
+		selectItem(menuItems[curSelected]);
+	}
+}
+
+function onClose() {
+	// if (pauseMusic != null)
+	// 	FlxG.sound.destroySound(pauseMusic);
+
+	if (FlxG.cameras.list.contains(pauseCam)) {
+		FlxG.cameras.remove(pauseCam, true);
+	}
+
+	FlxG.sound.play(Paths.sound("menus/recordscratch"), 0.8);
+}

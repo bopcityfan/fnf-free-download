@@ -1,4 +1,5 @@
 import funkin.backend.system.Flags;
+import funkin.options.Options;
 import karaoke.backend.utils.KaraokeUtil;
 
 final optionList:Array<String> = ['StoryMenu', 'Freeplay', 'Settings'];
@@ -46,7 +47,7 @@ function update(elapsed:Float) {
 		accept();
 	}
 
-	if (controls.DEV_ACCESS && !Flags.DISABLE_EDITORS) {
+	if (controls.DEV_ACCESS && Options.devMode && !Flags.DISABLE_EDITORS) {
 		persistentUpdate = false;
 		openSubState(new ModSubState('substates/editors/EditorSelect'));
 	}

@@ -1,27 +1,23 @@
-import flixel.util.FlxGradient;
-import funkin.backend.system.Conductor;
 import funkin.savedata.FunkinSave;
 import karaoke.backend.utils.ColorExtension;
 import karaoke.backend.utils.SpriteExtension;
 import karaoke.backend.utils.SpriteExtension.DrawPassType;
-import karaoke.backend.utils.KaraokeUtil;
 
 using ColorExtension;
 using SpriteExtension;
 
 public var isNightTime:Bool = false;
 
-var sky:FunkinSprite;
-var houseLights:FunkinSprite;
-var leftLightShadow:FunkinSprite;
-var rightLightShadow:FunkinSprite;
-var spotlightCircle:FunkinSprite;
+public final duskColor:FlxColor = 0xFFFFC8AD;
+public final duskLightingColor:Array<Float> = duskColor.vec4();
+public final duskShadowColor:Array<Float> = [0, 0, 0, 0.4];
+public final duskSkyGradientColor:Array<Float> = [0xFFE6966E, 0xFFE8B66C];
 
-var ladyDance:Character;
+public final nightLightingColor:Array<Float> = [97/255, 76/255, 117/255, 1.0];
+public final nightShadowColor:Array<Float> = [0, 0, 0, 0.45];
 
-function create() {
-	isNightTime = curSong == "stars";
-}
+public var sky:FunkinSprite;
+public var houseLights:FunkinSprite;
 
 function postCreate() {
 	if (!isNightTime) {
@@ -45,251 +41,45 @@ function postCreate() {
 		houseLights.playAnim("lights", true);
 		insert(5, houseLights);
 
-		cyan = new FunkinSprite(95, 104).loadGraphic(Paths.image("game/stages/house/cyan"));
-		insert(6, cyan);
-		cyan.kill();
-
-		spotlightCircle = new FunkinSprite().loadGraphic(Paths.image("game/stages/house/ididntwanttomakethisasprite"));
-		spotlightCircle.screenCenter();
-		spotlightCircle.x += 140;
-		spotlightCircle.y += 80;
-		spotlightCircle.antialiasing = false;
-		spotlightCircle.alpha = 0.5;
-		insert(5, spotlightCircle);
-
-		leftLightShadow = new FunkinSprite().makeSolid(300, 500, 0xFF000000);
-		leftLightShadow.screenCenter();
-		leftLightShadow.x -= 120;
-		leftLightShadow.y -= 25;
-		leftLightShadow.angle = 12.5;
-		add(leftLightShadow);
-
-		rightLightShadow = new FunkinSprite().makeSolid(300, 500, 0xFF000000);
-		rightLightShadow.screenCenter();
-		rightLightShadow.x += 400;
-		rightLightShadow.y -= 25;
-		rightLightShadow.angle = -12.5;
-		add(rightLightShadow);
-
-		spotlightCircle.alpha = leftLightShadow.alpha = rightLightShadow.alpha = 0;
-
 		for (name => spr in stage.stageSprites) {
 			spr.color = 0xFF261B33;
 		}
 
-		final baseLightingColor:Array<Float> = [97/255, 76/255, 117/255, 1.0];
-		final shadowColor:Array<Float> = [0, 0, 0, 0.45];
-
 		dad.setDrawPass([
-			DrawPassType.LIGHTING({x: 4, y: 0}, baseLightingColor, shadowColor)
+			DrawPassType.LIGHTING({x: 4, y: 0}, nightLightingColor, nightShadowColor)
 		]);
 
 		playerEyes.colorReplaceEyes = 0xFFFFFFFF.vec3();
 		boyfriend.setDrawPass([
 			DrawPassType.SHADER(false, {x: 0, y: 0}, playerSkin),
-			DrawPassType.LIGHTING({x: -4, y: 0}, baseLightingColor, shadowColor),
+			DrawPassType.LIGHTING({x: -4, y: 0}, nightLightingColor, nightShadowColor),
 			DrawPassType.SHADER(true, {x: 0, y: 0}, playerEyes)
 		]);
 
 		gf.setDrawPass([
 			DrawPassType.SHADER(false, {x: 0, y: 0}, ladySkin),
-			DrawPassType.LIGHTING({x: 0, y: 4}, baseLightingColor, shadowColor),
+			DrawPassType.LIGHTING({x: 0, y: 4}, nightLightingColor, nightShadowColor),
 		]);
 
-		ladySpeaker.setDrawPass([
-			DrawPassType.LIGHTING({x: 0, y: 4}, baseLightingColor, shadowColor)
+		ladySpeaker?.setDrawPass([
+			DrawPassType.LIGHTING({x: 0, y: 4}, nightLightingColor, nightShadowColor)
 		]);
-
-		speakerLight = true;
-
-		ladyDance = new Character(boyfriend.x + 75, boyfriend.y - 55, "ladydance", true);
-		player.characters.push(ladyDance);
-		insert(members.indexOf(boyfriend)+1, ladyDance);
-		ladyDance.kill();
-	}
-}
-
-function beatHit(b) {
-	if (isNightTime)
-		houseLights.animation.curAnim.curFrame = FlxMath.wrap(Std.int(b/speakerInterval), 0, 3);
-}
-
-var _time:Float = 0;
-function update(e:Float) {
-	if (!isNightTime) return;
-	_time += e;
-	sky.shader.elapsed = _time;
-}
-
-// switch statement in stephit because life isnt good var hate
-function stepHit(s) {
-	switch curSong {
-		case "summer":
-			switch s {
-				case 376:
-					camGame.fade(0xFFFFFFFF, KaraokeUtil.songTimeToSeconds(0, 2, 0), false, null, true);
-				case 384:
-					camGame.flash(0xFFFFFFFF, 0.001, null, true); // stop the fade or something? idk
-					camGame.fade(0xFFFFFFFF, KaraokeUtil.songTimeToSeconds(0, 1, 0), true, null, true);
-
-					FlxGradient.overlayGradientOnFlxSprite(sky, sky.width, sky.height, [0xFFE6966E, 0xFFE8B66C], 0, 0, 1, 90, true);
-
-					for (name => spr in stage.stageSprites) {
-						spr.color = 0xFFFFC8AD;
-					}
-
-					final baseLightingColor:Array<Float> = 0xFFFFC8AD.vec4();
-					final shadowColor:Array<Float> = [0, 0, 0, 0.4];
-
-					dad.setDrawPass([
-						DrawPassType.LIGHTING({x: 4, y: -4}, baseLightingColor, shadowColor)
-					]);
-
-					playerEyes.colorReplaceEyes = 0xFFFFFFFF.vec3();
-					boyfriend.setDrawPass([
-						DrawPassType.SHADER(false, {x: 0, y: 0}, playerSkin),
-						DrawPassType.LIGHTING({x: -4, y: -4}, baseLightingColor, shadowColor)
-					]);
-
-					gf.setDrawPass([
-						DrawPassType.SHADER(false, {x: 0, y: 0}, ladySkin),
-						DrawPassType.LIGHTING({x: 0, y: -4}, baseLightingColor, shadowColor),
-					]);
-
-					ladySpeaker.setDrawPass([
-						DrawPassType.LIGHTING({x: 0, y: -4}, baseLightingColor, shadowColor)
-					]);
-					speakerLight = true;
-			}
-		case "stars":
-			switch s {
-				case 448:
-					gf.visible = ladySpeaker.visible = houseLights.visible = speakerLight = false;
-					for (name => spr in stage.stageSprites) {
-						spr.visible = false;
-					}
-
-					dad.setDrawPass([
-						DrawPassType.COLOR(true, {x: 0, y: 0}, [0,0,0])
-					]);
-
-					boyfriend.setDrawPass([
-						DrawPassType.SHADER(false, {x: 0, y: 0}, playerSkin),
-						DrawPassType.COLOR(true, {x: 0, y: 0}, [0,0,0])
-					]);
-
-					dad.scale.set(2, 2);
-					dad.updateHitbox();
-					boyfriend.scale.set(2, 2);
-					boyfriend.updateHitbox();
-
-					dad.x -= 80;
-					dad.y += 80;
-
-					boyfriend.x += 20;
-					boyfriend.y += 60;
-
-					flash(camGame, {color: 0xFFFFFFFF, time: 0.1, force: true}, null);
-				case 512:
-					gf.visible = ladySpeaker.visible = houseLights.visible = speakerLight = true;
-					for (name => spr in stage.stageSprites) {
-						spr.visible = true;
-					}
-
-					dad.scale.set(1, 1);
-					dad.updateHitbox();
-					boyfriend.scale.set(1, 1);
-					boyfriend.updateHitbox();
-
-					dad.x += 120;
-					dad.y -= 80;
-
-					boyfriend.x -= 60;
-					boyfriend.y -= 60;
-
-					camera.lock(camera.data[2].x, camera.data[2].y, true);
-					camera.snap();
-
-					dad.setDrawPass([
-						DrawPassType.LIGHTING({x: 0, y: -4}, [1,1,1,1], [0,0,0,0.5])
-					]);
-
-					boyfriend.setDrawPass([
-						DrawPassType.SHADER(false, {x: 0, y: 0}, playerSkin),
-						DrawPassType.LIGHTING({x: 0, y: -4}, [1,1,1,1], [0,0,0,0.5])
-					]);
-
-					spotlightCircle.alpha = (leftLightShadow.alpha = rightLightShadow.alpha = 1) * 0.5;
-
-					flash(camGame, {color: 0xFFFFFFFF, time: 0.1, force: true}, null);
-				case 528: flash(camGame, {color: 0xFFFFFFFF, time: 0.1, force: true}, null);
-				case 576:
-					gf.visible = false;
-					dad.x += 40;
-					boyfriend.x -= 40;
-
-					ladyDance.revive();
-					ladyDance.x -= 85;
-					ladyDance.setDrawPass([
-						DrawPassType.SHADER(false, {x: 0, y: 0}, ladySkin),
-						DrawPassType.LIGHTING({x: 0, y: -4}, [1,1,1,1], [0,0,0,0.5])
-					]);
-
-					flash(camGame, {color: 0xFFFFFFFF, time: 0.1, force: true}, null);
-				case 640:
-					final baseLightingColor:Array<Float> = 0xFF614C75.vec4();
-					final shadowColor:Array<Float> = [0, 0, 0, 0.45];
-
-					dad.setDrawPass([
-						DrawPassType.LIGHTING({x: 4, y: 0}, baseLightingColor, shadowColor)
-					]);
-
-					playerEyes.colorReplaceEyes = 0xFFFFFFFF.vec3();
-					boyfriend.setDrawPass([
-						DrawPassType.SHADER(false, {x: 0, y: 0}, playerSkin),
-						DrawPassType.LIGHTING({x: -4, y: 0}, baseLightingColor, shadowColor),
-						DrawPassType.SHADER(true, {x: 0, y: 0}, playerEyes)
-					]);
-
-					spotlightCircle.alpha = leftLightShadow.alpha = rightLightShadow.alpha = 0;
-
-					dad.x = 232;
-					boyfriend.x = 503;
-					gf.visible = true;
-					ladyDance.kill();
-					camera.unlock();
-					cyan.revive();
-					flash(camGame, {color: 0xFFFFFFFF, time: 0.1, force: true}, null);
+		if (speakerLight != null) {
+			speakerLight = true;
 		}
 	}
 }
 
-function onEvent(e) if (curSong == "stars" && e.event.name == "go off") {
-	if (e.event.params[0] != 2) {
-		var positions:Array<Float> = switch e.event.params[0] {
-			case 0: [220, -61, 458];
-			case 1: [365, 84, 603];
-		};
-		spotlightCircle.x = positions[0];
-		spotlightCircle.y = 261;
-		spotlightCircle.setGraphicSize(257, spotlightCircle.height);
-		spotlightCircle.updateHitbox();
+function beatHit(b) {
+	if (!isNightTime || speakerInterval == null) return;
 
-		leftLightShadow.x = positions[1];
-		leftLightShadow.y = -70;
+	houseLights.animation.curAnim.curFrame = FlxMath.wrap(Std.int(b/speakerInterval), 0, 3);
+}
 
-		rightLightShadow.x = positions[2];
-		rightLightShadow.y = -70;
-	} else {
-		spotlightCircle.x = 229;
-		spotlightCircle.y = 261;
-		spotlightCircle.setGraphicSize(385, spotlightCircle.height);
-		spotlightCircle.updateHitbox();
+var timer:Float = 0;
+function update(e:Float) {
+	if (!isNightTime) return;
 
-		leftLightShadow.x = -52;
-		leftLightShadow.y = -70;
-
-		rightLightShadow.x = 595;
-		rightLightShadow.y = -70;
-	}
+	timer += e;
+	sky.shader.elapsed = timer;
 }

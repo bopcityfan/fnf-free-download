@@ -84,8 +84,8 @@ function onNoteCreation(event) {
 	event.cancel();
 
 	var note = event.note;
-	note.frames = Paths.getFrames('game/notes/default');
-	switch("default") {
+	note.frames = Paths.getFrames('game/notes/${hudSkin}');
+	switch(hudSkin) {
 		default:
 			if (!note.isSustainNote)
 				note.animation.addByPrefix('scroll', ['purple_note', 'blue_note', 'green_note', 'red_note'][event.note.noteData], 0, true);
@@ -112,13 +112,12 @@ function onStrumCreation(event) {
 		case 0: 0.025;
 	}) + (Note.swagWidth * event.strumID), 24);
 
-	// adjusted scroll speed, i dont recommend going below 0.55 cuz it'll cause pop-in
-	event.strum.scrollSpeed = 0.55 * PlayState.SONG.scrollSpeed;
+	event.strum.scrollSpeed = 0.45 * PlayState.SONG.scrollSpeed;
 
 	event.cancel();
 
 	var strum = event.strum;
-	strum.frames = Paths.getFrames('game/notes/default');
+	strum.frames = Paths.getFrames('game/notes/${hudSkin}');
 	strum.animation.addByPrefix('static', event.animPrefix, 0, true);
 	strum.animation.addByPrefix('pressed', event.animPrefix, 0, true); // so it'll stop tracing stupid shit
 

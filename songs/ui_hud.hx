@@ -18,7 +18,7 @@ function wipeBaseContent() {
 	}
 }
 
-function new() {
+function create() {
 	hud = switch(hudSkin) {
 		default:
 			new DefaultHud();
@@ -27,9 +27,7 @@ function new() {
 	}
 	hud.spriteGroup.cameras = [camHUD];
 	add(hud.spriteGroup);
-}
 
-function create() {
 	hud.create();
 }
 
