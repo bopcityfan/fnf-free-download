@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character antialiasing="false" holdTime="8" flipX="true" isPlayer="true">
+<character antialiasing="false" holdTime="8" flipX="true" isPlayer="true" sprite="player/dw">
 	<anim x="0" loop="false" y="0" fps="12" anim="spr_dwidle" name="idle"/>
 	<anim x="0" loop="false" y="0" fps="12" anim="spr_dwleft" name="singLEFT"/>
 	<anim x="-2" loop="false" y="-5" fps="12" anim="spr_dwdown" name="singDOWN"/>

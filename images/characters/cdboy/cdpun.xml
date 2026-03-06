@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Tex-Packer-EX v0.6.8 https://strawberrysage.github.io/tex-packer-ex
+-->
+<TextureAtlas imagePath="cdpun.png" width="191" height="195">
+  <SubTexture name="spr_cdpun_0" x="125" y="0"  width="66" height="95" frameX="-0" frameY="-3" frameWidth="67" frameHeight="98"/>
+  <SubTexture name="spr_cdpun_1" x="125" y="95"  width="65" height="95" frameX="-0" frameY="-3" frameWidth="67" frameHeight="98"/>
+  <SubTexture name="spr_cdpun_2" x="62" y="97"  width="63" height="96" frameX="-0" frameY="-2" frameWidth="67" frameHeight="98"/>
+  <SubTexture name="spr_cdpun_3" x="62" y="0"  width="63" height="97" frameX="-0" frameY="-1" frameWidth="67" frameHeight="98"/>
+  <SubTexture name="spr_cdpun_4" x="0" y="98"  width="62" height="97" frameX="-1" frameY="-1" frameWidth="67" frameHeight="98"/>
+  <SubTexture name="spr_cdpun_5" x="0" y="98"  width="62" height="97" frameX="-1" frameY="-1" frameWidth="67" frameHeight="98"/>
+  <SubTexture name="spr_cdpun_6" x="0" y="98"  width="62" height="97" frameX="-1" frameY="-1" frameWidth="67" frameHeight="98"/>
+  <SubTexture name="spr_cdpunpause_0" x="0" y="0"  width="62" height="98" frameX="-0" frameY="-0" frameWidth="62" frameHeight="98"/>
+</TextureAtlas>

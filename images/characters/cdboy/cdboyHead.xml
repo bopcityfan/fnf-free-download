@@ -1,30 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<TextureAtlas imagePath="cdboy.png" width="434" height="478">
-	<SubTexture name="spr_cdboydown_0" x="1" y="367" width="72" height="81" frameX="-0" frameY="-0" frameWidth="72" frameHeight="81"/>
-	<SubTexture name="spr_cdboydown_1" x="324" y="396" width="71" height="81" frameX="-0" frameY="-0" frameWidth="71" frameHeight="81"/>
-	<SubTexture name="spr_cdboydown_2" x="361" y="88" width="72" height="82" frameX="-0" frameY="-0" frameWidth="72" frameHeight="82"/>
-	<SubTexture name="spr_cdboydown_3" x="76" y="395" width="72" height="81" frameX="-0" frameY="-0" frameWidth="72" frameHeight="81"/>
-	<SubTexture name="spr_cdboydown_4" x="175" y="383" width="72" height="82" frameX="-0" frameY="-0" frameWidth="72" frameHeight="82"/>
-	<SubTexture name="spr_cdboydown_5" x="250" y="395" width="71" height="82" frameX="-0" frameY="-0" frameWidth="71" frameHeight="82"/>
-	<SubTexture name="spr_cdboyidle_0" x="253" y="298" width="68" height="94" frameX="-0" frameY="-0" frameWidth="68" frameHeight="94"/>
-	<SubTexture name="spr_cdboyleft_0" x="1" y="181" width="73" height="91" frameX="-0" frameY="-0" frameWidth="73" frameHeight="91"/>
-	<SubTexture name="spr_cdboyleft_1" x="176" y="292" width="74" height="88" frameX="-0" frameY="-0" frameWidth="74" frameHeight="88"/>
-	<SubTexture name="spr_cdboyleft_2" x="212" y="106" width="75" height="90" frameX="-0" frameY="-0" frameWidth="75" frameHeight="90"/>
-	<SubTexture name="spr_cdboyleft_3" x="224" y="1" width="75" height="89" frameX="-0" frameY="-0" frameWidth="75" frameHeight="89"/>
-	<SubTexture name="spr_cdboyleft_4" x="1" y="275" width="73" height="89" frameX="-0" frameY="-0" frameWidth="73" frameHeight="89"/>
-	<SubTexture name="spr_cdboyleft_5" x="212" y="199" width="74" height="90" frameX="-0" frameY="-0" frameWidth="74" frameHeight="90"/>
-	<SubTexture name="spr_cdboypause_0" x="302" y="1" width="74" height="84" frameX="-0" frameY="-0" frameWidth="74" frameHeight="84"/>
-	<SubTexture name="spr_cdboyright_0" x="77" y="252" width="96" height="69" rotated="true" frameX="-0" frameY="-0" frameWidth="69" frameHeight="96"/>
-	<SubTexture name="spr_cdboyright_1" x="324" y="298" width="67" height="95" frameX="-0" frameY="-0" frameWidth="67" frameHeight="95"/>
-	<SubTexture name="spr_cdboyright_2" x="77" y="324" width="95" height="68" rotated="true" frameX="-0" frameY="-0" frameWidth="68" frameHeight="95"/>
-	<SubTexture name="spr_cdboyright_3" x="360" y="192" width="67" height="95" frameX="-0" frameY="-0" frameWidth="67" frameHeight="95"/>
-	<SubTexture name="spr_cdboyright_4" x="289" y="199" width="68" height="96" frameX="-0" frameY="-0" frameWidth="68" frameHeight="96"/>
-	<SubTexture name="spr_cdboyright_5" x="290" y="93" width="68" height="96" frameX="-0" frameY="-0" frameWidth="68" frameHeight="96"/>
-	<SubTexture name="spr_cdboyup_0" x="1" y="1" width="73" height="104" frameX="-0" frameY="-0" frameWidth="73" frameHeight="104"/>
-	<SubTexture name="spr_cdboyup_1" x="1" y="108" width="102" height="70" rotated="true" frameX="-0" frameY="-0" frameWidth="70" frameHeight="102"/>
-	<SubTexture name="spr_cdboyup_2" x="106" y="107" width="102" height="70" rotated="true" frameX="-0" frameY="-0" frameWidth="70" frameHeight="102"/>
-	<SubTexture name="spr_cdboyup_3" x="106" y="180" width="103" height="69" rotated="true" frameX="-0" frameY="-0" frameWidth="69" frameHeight="103"/>
-	<SubTexture name="spr_cdboyup_4" x="77" y="1" width="71" height="103" frameX="-0" frameY="-0" frameWidth="71" frameHeight="103"/>
-	<SubTexture name="spr_cdboyup_5" x="151" y="1" width="70" height="102" frameX="-0" frameY="-0" frameWidth="70" frameHeight="102"/>
+<!--
+Created with Tex-Packer-EX v0.6.8 https://strawberrysage.github.io/tex-packer-ex
+-->
+<TextureAtlas imagePath="cdboyHead.png" width="499" height="471">
+  <SubTexture name="spr_cdboydown_0" x="0" y="0"  width="72" height="81" frameX="-1" frameY="-5" frameWidth="73" frameHeight="89"/>
+  <SubTexture name="spr_cdboydown_1" x="72" y="0"  width="71" height="81" frameX="-2" frameY="-7" frameWidth="73" frameHeight="89"/>
+  <SubTexture name="spr_cdboydown_2" x="287" y="0"  width="72" height="82" frameX="-1" frameY="-7" frameWidth="73" frameHeight="89"/>
+  <SubTexture name="spr_cdboydown_3" x="143" y="0"  width="72" height="81" frameX="-1" frameY="-6" frameWidth="73" frameHeight="89"/>
+  <SubTexture name="spr_cdboydown_4" x="359" y="0"  width="72" height="82" frameX="-1" frameY="-5" frameWidth="73" frameHeight="89"/>
+  <SubTexture name="spr_cdboydown_5" x="0" y="81"  width="71" height="82" frameX="-2" frameY="-6" frameWidth="73" frameHeight="89"/>
+  <SubTexture name="spr_cdboydownb_0" x="215" y="0"  width="72" height="81" frameX="-0" frameY="-0" frameWidth="72" frameHeight="81"/>
+  <SubTexture name="spr_cdboyidle_0" x="431" y="0"  width="68" height="94" frameX="-0" frameY="-0" frameWidth="68" frameHeight="94"/>
+  <SubTexture name="spr_cdboyleft_0" x="222" y="171"  width="73" height="91" frameX="-3" frameY="-0" frameWidth="78" frameHeight="91"/>
+  <SubTexture name="spr_cdboyleft_1" x="219" y="82"  width="74" height="88" frameX="-1" frameY="-3" frameWidth="78" frameHeight="91"/>
+  <SubTexture name="spr_cdboyleft_2" x="73" y="165"  width="75" height="90" frameX="-1" frameY="-1" frameWidth="78" frameHeight="91"/>
+  <SubTexture name="spr_cdboyleft_3" x="293" y="82"  width="75" height="89" frameX="-1" frameY="-2" frameWidth="78" frameHeight="91"/>
+  <SubTexture name="spr_cdboyleft_4" x="368" y="94"  width="73" height="89" frameX="-3" frameY="-2" frameWidth="78" frameHeight="91"/>
+  <SubTexture name="spr_cdboyleft_5" x="148" y="170"  width="74" height="90" frameX="-1" frameY="-1" frameWidth="78" frameHeight="91"/>
+  <SubTexture name="spr_cdboyleftb_0" x="0" y="165"  width="73" height="89" frameX="-3" frameY="-1" frameWidth="78" frameHeight="91"/>
+  <SubTexture name="spr_cdboypause_0" x="71" y="81"  width="74" height="84" frameX="-0" frameY="-0" frameWidth="74" frameHeight="84"/>
+  <SubTexture name="spr_cdboypausealt_0" x="145" y="81"  width="74" height="84" frameX="-0" frameY="-0" frameWidth="74" frameHeight="84"/>
+  <SubTexture name="spr_cdboyright_0" x="0" y="254"  width="69" height="96" frameX="-2" frameY="-3" frameWidth="71" frameHeight="99"/>
+  <SubTexture name="spr_cdboyright_1" x="295" y="171"  width="67" height="95" frameX="-4" frameY="-4" frameWidth="71" frameHeight="99"/>
+  <SubTexture name="spr_cdboyright_2" x="362" y="183"  width="68" height="95" frameX="-3" frameY="-4" frameWidth="71" frameHeight="99"/>
+  <SubTexture name="spr_cdboyright_3" x="430" y="183"  width="67" height="95" frameX="-4" frameY="-4" frameWidth="71" frameHeight="99"/>
+  <SubTexture name="spr_cdboyright_4" x="69" y="255"  width="68" height="96" frameX="-3" frameY="-3" frameWidth="71" frameHeight="99"/>
+  <SubTexture name="spr_cdboyright_5" x="137" y="260"  width="68" height="96" frameX="-3" frameY="-3" frameWidth="71" frameHeight="99"/>
+  <SubTexture name="spr_cdboyrightb_0" x="205" y="262"  width="68" height="97" frameX="-0" frameY="-0" frameWidth="68" frameHeight="97"/>
+  <SubTexture name="spr_cdboyup_0" x="210" y="367"  width="73" height="104" frameX="-0" frameY="-3" frameWidth="74" frameHeight="107"/>
+  <SubTexture name="spr_cdboyup_1" x="343" y="278"  width="70" height="102" frameX="-4" frameY="-0" frameWidth="74" frameHeight="107"/>
+  <SubTexture name="spr_cdboyup_2" x="413" y="278"  width="70" height="102" frameX="-4" frameY="-1" frameWidth="74" frameHeight="107"/>
+  <SubTexture name="spr_cdboyup_3" x="0" y="350"  width="69" height="103" frameX="-4" frameY="-2" frameWidth="74" frameHeight="107"/>
+  <SubTexture name="spr_cdboyup_4" x="139" y="359"  width="71" height="103" frameX="-2" frameY="-1" frameWidth="74" frameHeight="107"/>
+  <SubTexture name="spr_cdboyup_5" x="69" y="356"  width="70" height="102" frameX="-3" frameY="-2" frameWidth="74" frameHeight="107"/>
+  <SubTexture name="spr_cdboyupb_0" x="273" y="266"  width="70" height="101" frameX="-0" frameY="-0" frameWidth="70" frameHeight="101"/>
 </TextureAtlas>

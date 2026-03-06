@@ -2,13 +2,9 @@ import flixel.FlxBasic;
 import flixel.FlxObject;
 import flixel.group.FlxSpriteGroup;
 import funkin.savedata.FunkinSave;
+import funkin.backend.MusicBeatGroup;
 
-class HudBase {
-	public var spriteGroup:FlxSpriteGroup;
-	public var members(get, set):Array<Dynamic>;
-	function get_members():Array<Dynamic> {return spriteGroup?.members;}
-	function set_members(v:Array<Dynamic>):Array<Dynamic> {return spriteGroup?.members;} // no setting
-
+class HudBase extends MusicBeatGroup {
 	private var downscroll(get, set):Bool;
 	function get_downscroll():Bool {return PlayState.instance.camHUD.downscroll;}
 	function set_downscroll(value:Bool):Bool {return downscroll = PlayState.instance.camHUD.downscroll = value;}
@@ -24,22 +20,6 @@ class HudBase {
 	private var accuracy(get, set):Float;
 	function get_accuracy():Float {return PlayState.instance.accuracy;}
 	function set_accuracy(value:Int):Float {return accuracy = PlayState.instance.accuracy = value;}
-
-	override function new() {
-		spriteGroup = new FlxSpriteGroup();
-	}
-
-	public function add(basic:FlxBasic) {
-		spriteGroup?.add(basic);
-	}
-
-	public function insert(index:Int, basic:FlxBasic) {
-		spriteGroup?.insert(index, basic);
-	}
-
-	public function remove(basic:FlxBasic) {
-		spriteGroup?.remove(basic);
-	}
 
 	public function create() {}
 	public function postCreate() {}

@@ -1,107 +1,11 @@
 {
-	"events": [
-		{
-			"params": [
-				1
-			],
-			"name": "Camera Movement",
-			"time": 28000
-		},
-		{
-			"params": [
-				0
-			],
-			"name": "Camera Movement",
-			"time": 32000
-		},
-		{
-			"params": [
-				1
-			],
-			"name": "Camera Movement",
-			"time": 37333.3333333333
-		},
-		{
-			"params": [
-				0
-			],
-			"name": "Camera Movement",
-			"time": 42666.6666666667
-		},
-		{
-			"params": [
-				1
-			],
-			"name": "Camera Movement",
-			"time": 48000
-		},
-		{
-			"params": [
-				0
-			],
-			"name": "Camera Movement",
-			"time": 53333.3333333334
-		},
-		{
-			"params": [
-				1
-			],
-			"name": "Camera Movement",
-			"time": 58666.6666666667
-		},
-		{
-			"params": [
-				0
-			],
-			"name": "Camera Movement",
-			"time": 64000
-		},
-		{
-			"params": [
-				1
-			],
-			"name": "Camera Movement",
-			"time": 66666.6666666667
-		},
-		{
-			"params": [
-				0
-			],
-			"name": "Camera Movement",
-			"time": 69333.3333333334
-		},
-		{
-			"params": [
-				1
-			],
-			"name": "Camera Movement",
-			"time": 74666.6666666667
-		},
-		{
-			"params": [
-				0
-			],
-			"name": "Camera Movement",
-			"time": 80000
-		},
-		{
-			"params": [
-				1
-			],
-			"name": "Camera Movement",
-			"time": 85333.3333333333
-		},
-		{
-			"params": [
-				0
-			],
-			"name": "Camera Movement",
-			"time": 90666.6666666666
-		}
-	],
+	"events": [],
+	"codenameChart": true,
 	"strumLines": [
 		{
 			"keyCount": 4,
+			"strumScale": 1,
+			"position": "dad",
 			"notes": [
 				{
 					"id": 0,
@@ -255,7 +159,7 @@
 				},
 				{
 					"id": 0,
-					"sLen": 250.000000000004,
+					"sLen": 250,
 					"time": 31666.6666666667,
 					"type": 0
 				},
@@ -2090,22 +1994,22 @@
 					"type": 1
 				}
 			],
-			"position": "dad",
-			"strumScale": 1,
-			"visible": true,
-			"type": 0,
 			"characters": [
 				"cdboy"
 			],
+			"type": 0,
+			"visible": true,
 			"strumPos": [
 				0,
 				50
 			],
-			"strumLinePos": 0.25,
-			"vocalsSuffix": ""
+			"vocalsSuffix": "",
+			"strumLinePos": 0.25
 		},
 		{
 			"keyCount": 4,
+			"strumScale": 1,
+			"position": "boyfriend",
 			"notes": [
 				{
 					"id": 0,
@@ -2181,7 +2085,7 @@
 				},
 				{
 					"id": 1,
-					"sLen": 499.999999999989,
+					"sLen": 499.999999999975,
 					"time": 29166.6666666667,
 					"type": 0
 				},
@@ -3141,7 +3045,7 @@
 				},
 				{
 					"id": 3,
-					"sLen": 166.66666666673,
+					"sLen": 166.666666666788,
 					"time": 89833.3333333333,
 					"type": 0
 				},
@@ -3152,44 +3056,41 @@
 					"type": 0
 				}
 			],
-			"position": "boyfriend",
-			"strumScale": 1,
-			"visible": true,
-			"type": 1,
 			"characters": [
 				"dude"
 			],
+			"type": 1,
+			"visible": true,
 			"strumPos": [
 				0,
 				50
 			],
-			"strumLinePos": 0.75,
-			"vocalsSuffix": ""
+			"vocalsSuffix": "",
+			"strumLinePos": 0.75
 		},
 		{
 			"keyCount": 4,
-			"strumScale": 1,
-			"position": "girlfriend",
 			"notes": [],
+			"position": "girlfriend",
+			"strumScale": 1,
+			"strumSpacing": 1,
+			"visible": false,
+			"type": 2,
 			"characters": [
 				"ladywinter"
 			],
-			"type": 2,
-			"visible": false,
-			"strumSpacing": 1,
 			"strumPos": [
 				0,
 				50
 			],
-			"strumLinePos": 0.25,
-			"vocalsSuffix": ""
+			"vocalsSuffix": "",
+			"strumLinePos": 0.25
 		}
 	],
-	"codenameChart": true,
 	"scrollSpeed": 1.4,
 	"chartVersion": "1.6.0",
 	"stage": "bus",
 	"noteTypes": [
-		"Hurt Note"
+		"hurt"
 	]
 }

@@ -25,8 +25,8 @@ function create() {
 		case 'gaw':
 			new GAWHud();
 	}
-	hud.spriteGroup.cameras = [camHUD];
-	add(hud.spriteGroup);
+	hud.cameras = [camHUD];
+	add(hud);
 
 	hud.create();
 }

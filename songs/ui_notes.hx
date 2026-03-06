@@ -12,6 +12,10 @@ function onNoteHit(event) {
 	event.showSplash = false;
 
 	if (event.player) {
+		if (event.noteType == "hurt") {
+			return;
+		}
+
 		if (!event.note.isSustainNote) {
 			flow += 0.05;
 			flow = FlxMath.bound(flow, 0, 1);
@@ -63,6 +67,10 @@ if (!FunkinSave.save.data.dxStyledStrums) {
 // }
 
 function onPlayerMiss(event) {
+	if (!event.mustHit) {
+		return;
+	}
+
 	flow -= 0.1;
 	flow = FlxMath.bound(flow, 0, 1);
 	hud?.onFlowUpdate(flow);
@@ -73,8 +81,9 @@ function onPlayerMiss(event) {
 	event.cancelMissSound();
 	var missSound:FlxSound = FlxG.sound.load(Paths.sound("game/owch"));
 	missSound.onComplete = () -> {
-		if (missSound != null)
+		if (missSound != null) {
 			FlxG.sound.destroySound(missSound);
+		}
 	}
 	missSound.pitch = 0.6 + FlxG.random.float(0, 0.8);
 	missSound.play();
@@ -82,6 +91,10 @@ function onPlayerMiss(event) {
 
 function onNoteCreation(event) {
 	event.cancel();
+
+	// if (event.noteType != null) {
+	// 	return;
+	// }
 
 	var note = event.note;
 	note.frames = Paths.getFrames('game/notes/${hudSkin}');

@@ -25,6 +25,7 @@ function update(elapsed:Float) {
 	}
 
 	if (!cdboyBody.visible || cdboyBody.alpha <= 0.001) {
+		extraOffset.set();
 		return;
 	}
 
@@ -32,12 +33,14 @@ function update(elapsed:Float) {
 
 	cdboyBody.scale.set(1, (baseHeight) + -(Math.sin(timer * 2) + 0.75) * 0.05);
 	cdboyBody.skew.set(
-		baseSkew + (alternate ? 0.5 : -0.5),
+		baseSkew + (alternate ? 0.3 : -0.3),
 		0
 	);
 
-	extraOffset.x = -cdboyBody.skew.x;
-	extraOffset.y = baseHeight + (Math.sin(timer * 2) + 0.5) * 4.5;
+	extraOffset.set(
+		-cdboyBody.skew.x * 1.5,
+		baseHeight + (Math.sin(timer * 2) + 0.5) * 4.5
+	);
 
 	lastUpdateTime += FlxG.rawElapsed;
 	if (lastUpdateTime < updateInterval) {
@@ -46,7 +49,6 @@ function update(elapsed:Float) {
 	lastUpdateTime = 0;
 
 	alternate = !alternate;
-
 }
 
 function onPlayAnim(event) {

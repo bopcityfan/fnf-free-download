@@ -1,0 +1,5 @@
+<!DOCTYPE codename-engine-character>
+<character x="-27" y="-98" antialiasing="false" icon="cdpun" sprite="cdboy/cdpun">
+	<anim name="idle" anim="spr_cdpun_" fps="12"/>
+	<anim name="paused" anim="spr_cdpunpause_" x="-1" fps="12"/>
+</character>
