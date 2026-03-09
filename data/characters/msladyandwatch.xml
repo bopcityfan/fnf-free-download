@@ -1,0 +1,4 @@
+<!DOCTYPE codename-engine-character>
+<character x="-45" y="-103" sprite="lady/weeknd2/msladyandwatch" antialiasing="false" camx="-147" camy="80" icon="msladyandwatch" holdTime="8">
+	<anim name="idle" anim="spr_msladyandwatch_" fps="12"/>
+</character>

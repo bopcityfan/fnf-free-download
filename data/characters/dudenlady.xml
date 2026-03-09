@@ -1,0 +1,15 @@
+<!DOCTYPE codename-engine-character>
+<character x="-15" y="-100" sprite="misc/weeknd2/dudenlady" antialiasing="false" camx="-150" camy="75" isPlayer="true" flipX="true" holdTime="8">
+	<anim name="idle" anim="spr_dudenladyw2idle_" fps="12"/>
+	<anim name="singDOWN" anim="spr_dudenladyw2down_" x="4" y="-22" fps="12"/>
+	<anim name="singRIGHT" anim="spr_dudenladyw2right_" x="-19" y="-9" fps="12"/>
+	<anim name="singLEFT" anim="spr_dudenladyw2left_" x="14" y="11" fps="12"/>
+	<anim name="singUP" anim="spr_dudenladyw2up_" x="5" y="31" fps="12"/>
+	<anim name="singDOWN-miss" anim="spr_dudenladyw2downmiss_" x="2" y="-21" fps="12"/>
+	<anim name="singRIGHT-miss" anim="spr_dudenladyw2rightmiss_" x="-15" y="-9" fps="12"/>
+	<anim name="singLEFT-miss" anim="spr_dudenladyw2leftmiss_" x="15" y="6" fps="12"/>
+	<anim name="singUP-miss" anim="spr_dudenladyw2upmiss_" x="5" y="27" fps="12"/>
+	<anim name="ayy" anim="spr_dudenladyw2ayy_" x="1" y="-6" fps="12"/>
+	<anim name="ayy-bad" anim="spr_dudenladyw2ayysuck_" x="1" y="-6" fps="12"/>
+	<anim name="paused" anim="spr_dudenladyw2pause_" x="-10" y="-6" fps="12"/>
+</character>

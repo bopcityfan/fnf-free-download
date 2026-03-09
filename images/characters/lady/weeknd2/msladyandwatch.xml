@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Tex-Packer-EX v0.6.8 https://strawberrysage.github.io/tex-packer-ex
+-->
+<TextureAtlas imagePath="msladyandwatch.png" width="239" height="198">
+  <SubTexture name="spr_msladyandwatch_0.png" x="79" y="99"  width="80" height="98" frameX="-2" frameY="-3" frameWidth="84" frameHeight="101"/>
+  <SubTexture name="spr_msladyandwatch_1.png" x="159" y="0"  width="80" height="98" frameX="-3" frameY="-3" frameWidth="84" frameHeight="101"/>
+  <SubTexture name="spr_msladyandwatch_2.png" x="0" y="0"  width="80" height="99" frameX="-4" frameY="-2" frameWidth="84" frameHeight="101"/>
+  <SubTexture name="spr_msladyandwatch_3.png" x="80" y="0"  width="79" height="99" frameX="-4" frameY="-2" frameWidth="84" frameHeight="101"/>
+  <SubTexture name="spr_msladyandwatch_4.png" x="0" y="99"  width="79" height="99" frameX="-4" frameY="-2" frameWidth="84" frameHeight="101"/>
+  <SubTexture name="spr_msladyandwatch_5.png" x="0" y="99"  width="79" height="99" frameX="-4" frameY="-2" frameWidth="84" frameHeight="101"/>
+  <SubTexture name="spr_msladyandwatch_6.png" x="0" y="99"  width="79" height="99" frameX="-4" frameY="-2" frameWidth="84" frameHeight="101"/>
+</TextureAtlas>

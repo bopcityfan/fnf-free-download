@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Tex-Packer-EX v0.6.8 https://strawberrysage.github.io/tex-packer-ex
+-->
+<TextureAtlas imagePath="speakerLight.png" width="303" height="204">
+  <SubTexture name="light0.png" x="101" y="0"  width="101" height="51" frameX="-0" frameY="-0" frameWidth="101" frameHeight="51"/>
+  <SubTexture name="light1.png" x="0" y="102"  width="101" height="51" frameX="-0" frameY="-0" frameWidth="101" frameHeight="51"/>
+  <SubTexture name="light2.png" x="101" y="51"  width="101" height="51" frameX="-0" frameY="-0" frameWidth="101" frameHeight="51"/>
+  <SubTexture name="light3.png" x="202" y="0"  width="101" height="51" frameX="-0" frameY="-0" frameWidth="101" frameHeight="51"/>
+  <SubTexture name="cyan.png" x="0" y="0"  width="101" height="51" frameX="-0" frameY="-0" frameWidth="101" frameHeight="51"/>
+  <SubTexture name="player.png" x="0" y="153"  width="101" height="51" frameX="-0" frameY="-0" frameWidth="101" frameHeight="51"/>
+  <SubTexture name="error0.png" x="101" y="102"  width="101" height="51" frameX="-0" frameY="-0" frameWidth="101" frameHeight="51"/>
+  <SubTexture name="error1.png" x="0" y="51"  width="101" height="51" frameX="-0" frameY="-0" frameWidth="101" frameHeight="51"/>
+</TextureAtlas>

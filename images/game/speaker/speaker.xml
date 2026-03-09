@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Tex-Packer-EX v0.6.8 https://strawberrysage.github.io/tex-packer-ex
+-->
+<TextureAtlas imagePath="speaker.png" width="256" height="162">
+  <SubTexture name="spr_speaker_0.png" x="0" y="0"  width="128" height="54" frameX="-0" frameY="-0" frameWidth="128" frameHeight="54"/>
+  <SubTexture name="spr_speaker_1.png" x="0" y="54"  width="128" height="54" frameX="-0" frameY="-0" frameWidth="128" frameHeight="54"/>
+  <SubTexture name="spr_speaker_2.png" x="128" y="0"  width="128" height="54" frameX="-0" frameY="-0" frameWidth="128" frameHeight="54"/>
+  <SubTexture name="spr_speaker_3.png" x="0" y="108"  width="128" height="54" frameX="-0" frameY="-0" frameWidth="128" frameHeight="54"/>
+  <SubTexture name="spr_speakeroff_0.png" x="128" y="54"  width="128" height="54" frameX="-0" frameY="-0" frameWidth="128" frameHeight="54"/>
+</TextureAtlas>

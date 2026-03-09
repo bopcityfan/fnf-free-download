@@ -24,6 +24,9 @@ function update(elapsed:Float) {
 		FlxG.state.insert(FlxG.state.members.indexOf(this)+1, cdboyBody);
 	}
 
+	cdboyBody.visible = visible;
+	cdboyBody.alpha = alpha;
+
 	if (!cdboyBody.visible || cdboyBody.alpha <= 0.001) {
 		extraOffset.set();
 		return;

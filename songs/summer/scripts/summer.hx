@@ -34,11 +34,9 @@ function stepHit(step:Int) {
 				DrawPassType.LIGHTING({x: 0, y: -4}, duskLightingColor, duskShadowColor),
 			]);
 
-			ladySpeaker?.setDrawPasses([
+			ladySpeaker?.main.setDrawPasses([
 				DrawPassType.LIGHTING({x: 0, y: -4}, duskLightingColor, duskShadowColor)
 			]);
-			if (speakerLight != null) {
-				speakerLight = true;
-			}
+			ladySpeaker?.light.visible = true;
 	}
 }

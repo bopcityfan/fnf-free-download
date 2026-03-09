@@ -61,19 +61,17 @@ function postCreate() {
 			DrawPassType.LIGHTING({x: 0, y: 4}, nightLightingColor, nightShadowColor),
 		]);
 
-		ladySpeaker?.setDrawPasses([
+		ladySpeaker?.main.setDrawPasses([
 			DrawPassType.LIGHTING({x: 0, y: 4}, nightLightingColor, nightShadowColor)
 		]);
-		if (speakerLight != null) {
-			speakerLight = true;
-		}
+		ladySpeaker?.light.visible = true;
 	}
 }
 
-function beatHit(b) {
-	if (!isNightTime || speakerInterval == null) return;
+function beatHit(beat:Int) {
+	if (!isNightTime) return;
 
-	houseLights.animation.curAnim.curFrame = FlxMath.wrap(Std.int(b/speakerInterval), 0, 3);
+	houseLights.animation.curAnim.curFrame = FlxMath.wrap(Std.int(beat / 2), 0, 3);
 }
 
 var timer:Float = 0;

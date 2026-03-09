@@ -67,7 +67,7 @@ if (!FunkinSave.save.data.dxStyledStrums) {
 // }
 
 function onPlayerMiss(event) {
-	if (!event.mustHit) {
+	if (event.note.avoid) {
 		return;
 	}
 
@@ -91,10 +91,6 @@ function onPlayerMiss(event) {
 
 function onNoteCreation(event) {
 	event.cancel();
-
-	// if (event.noteType != null) {
-	// 	return;
-	// }
 
 	var note = event.note;
 	note.frames = Paths.getFrames('game/notes/${hudSkin}');

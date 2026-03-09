@@ -1,61 +1,25 @@
+import karaoke.game.Speaker;
 import funkin.savedata.FunkinSave;
 
-// ffs
-static var ladySpeaker:FunkinSprite;
-static var speakerLightSpr:FunkinSprite;
-
-static var speakerAuto:Bool = true;
-static var speakerInterval:Int = 2;
-static var speakerLight:Bool = false;
-
 static var ladySkin:CustomShader;
+static var ladySpeaker:Speaker;
 
 function create() {
-	ladySpeaker = new FunkinSprite();
-	ladySpeaker.frames = Paths.getFrames("game/stages/speaker");
-	ladySpeaker.animation.add("hi", !FunkinSave.save.data.epilepsy ? [0, 1, 2, 3] : [0], 0, true, false, false);
-	ladySpeaker.playAnim("hi", true);
-
-	speakerLightSpr = new FunkinSprite();
-	speakerLightSpr.frames = Paths.getFrames("game/stages/speakerLights");
-	speakerLightSpr.animation.add("hi", !FunkinSave.save.data.epilepsy ? [0, 3, 2, 1] : [0], 0, true, false, false);
-	speakerLightSpr.playAnim("hi", true);
+	ladySpeaker = new Speaker();
 
 	shader = ladySkin = new CustomShader("lady/colorswap");
-
-	speakerAuto ??= true;
-	speakerInterval ??= 2;
-	speakerLight ??= false;
 }
 
 var firstFrame:Bool = true;
 function update(elapsed:Float) {
 	if (firstFrame) {
 		firstFrame = false;
-
 		FlxG.state.insert(FlxG.state.members.indexOf(this), ladySpeaker);
-		FlxG.state.insert(FlxG.state.members.indexOf(ladySpeaker)+1, speakerLightSpr);
 	}
 	ladySpeaker.setPosition(x - (ladySpeaker.width*0.2), y + 77);
-	speakerLightSpr.setPosition(x - (speakerLightSpr.width*0.2), y);
-
-	speakerLightSpr.visible = speakerLight;
 }
 
-function beatHit(b) {
-	if (speakerAuto && b > 0) {
-		ladySpeaker.animation.curAnim.curFrame = speakerLightSpr.animation.curAnim.curFrame = FlxMath.wrap(Std.int(b/speakerInterval), 0, 3);
-	}
-}
-
-// ffs
 function destroy() {
 	ladySpeaker = null;
-	speakerLightSpr = null;
-
-	speakerAuto = null;
-	speakerInterval = null;
-	speakerLight = null;
-
 	ladySkin = null;
 }

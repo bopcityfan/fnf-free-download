@@ -1,11 +1,8 @@
 {
 	"events": [],
-	"codenameChart": true,
 	"strumLines": [
 		{
 			"keyCount": 4,
-			"strumScale": 1,
-			"position": "dad",
 			"notes": [
 				{
 					"id": 0,
@@ -1994,22 +1991,22 @@
 					"type": 1
 				}
 			],
+			"position": "dad",
+			"strumScale": 1,
+			"visible": true,
+			"type": 0,
 			"characters": [
 				"cdboy"
 			],
-			"type": 0,
-			"visible": true,
 			"strumPos": [
 				0,
 				50
 			],
-			"vocalsSuffix": "",
-			"strumLinePos": 0.25
+			"strumLinePos": 0.25,
+			"vocalsSuffix": ""
 		},
 		{
 			"keyCount": 4,
-			"strumScale": 1,
-			"position": "boyfriend",
 			"notes": [
 				{
 					"id": 0,
@@ -2085,7 +2082,7 @@
 				},
 				{
 					"id": 1,
-					"sLen": 499.999999999975,
+					"sLen": 499.999999999967,
 					"time": 29166.6666666667,
 					"type": 0
 				},
@@ -3045,7 +3042,7 @@
 				},
 				{
 					"id": 3,
-					"sLen": 166.666666666788,
+					"sLen": 166.666666666817,
 					"time": 89833.3333333333,
 					"type": 0
 				},
@@ -3056,37 +3053,41 @@
 					"type": 0
 				}
 			],
-			"characters": [
-				"dude"
-			],
-			"type": 1,
 			"visible": true,
+			"strumSpacing": 1,
 			"strumPos": [
 				0,
 				50
 			],
+			"position": "boyfriend",
+			"strumScale": 1,
 			"vocalsSuffix": "",
-			"strumLinePos": 0.75
+			"strumLinePos": 0.75,
+			"type": 1,
+			"characters": [
+				"dudenlady"
+			]
 		},
 		{
 			"keyCount": 4,
-			"notes": [],
-			"position": "girlfriend",
 			"strumScale": 1,
-			"strumSpacing": 1,
-			"visible": false,
-			"type": 2,
+			"position": "girlfriend",
+			"notes": [],
 			"characters": [
 				"ladywinter"
 			],
+			"type": 2,
+			"visible": false,
+			"strumSpacing": 1,
 			"strumPos": [
 				0,
 				50
 			],
-			"vocalsSuffix": "",
-			"strumLinePos": 0.25
+			"strumLinePos": 0.25,
+			"vocalsSuffix": ""
 		}
 	],
+	"codenameChart": true,
 	"scrollSpeed": 1.4,
 	"chartVersion": "1.6.0",
 	"stage": "bus",

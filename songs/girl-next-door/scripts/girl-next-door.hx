@@ -2,6 +2,8 @@ import karaoke.backend.utils.ColorExtension;
 import karaoke.backend.utils.SpriteExtension;
 import karaoke.backend.utils.SpriteExtension.DrawPassType;
 import karaoke.backend.utils.KaraokeUtil;
+import karaoke.game.Speaker;
+import karaoke.game.Speaker.SpeakerMode;
 import flixel.tweens.misc.ColorTween;
 
 using ColorExtension;
@@ -27,7 +29,7 @@ function postCreate() {
 	dudeDance = new FunkinSprite(boyfriend.x - 20, boyfriend.y - 10);
 
 	for (index => char in [ladyDance, dudeDance]) {
-		char.loadSprite(Paths.image('game/stages/bus/girl-next-door/${['lady', 'dude'][index]}-dance'));
+		char.loadSprite(Paths.image('game/events/girl-next-door/${['lady', 'dude'][index]}Dance'));
 
 		char.animation.addByPrefix('danceDown', 'spr_${['lady', 'dude'][index]}dancedown', 12, false);
 		char.animation.addByPrefix('danceUp', 'spr_${['lady', 'dude'][index]}danceup', 12, false);
@@ -46,7 +48,7 @@ function postCreate() {
 	}
 
 	danceBreak = new FunkinSprite(0, 75);
-	danceBreak.loadSprite(Paths.image('game/stages/bus/girl-next-door/dancebreak'));
+	danceBreak.loadSprite(Paths.image('game/events/girl-next-door/dancebreak'));
 	danceBreak.screenCenter(0x01);
 	danceBreak.scrollFactor.set();
 	add(danceBreak);
@@ -61,7 +63,7 @@ function postCreate() {
 	}
 
 	tunnel = new FunkinSprite(650, 66);
-	tunnel.loadSprite(Paths.image('game/stages/bus/girl-next-door/bigfuckintunnel'));
+	tunnel.loadSprite(Paths.image('game/events/girl-next-door/bigfuckintunnel'));
 	insert(5, tunnel);
 	tunnel.visible = false;
 
@@ -124,6 +126,7 @@ function beatHit(beat:Int) {
 	camGame.zoom += 0.02;
 }
 
+var oldMode:SpeakerMode;
 function exitTunnel() {
 	flash(camGame, {color: 0xFFFFFFFF, time: 0.1, force: true}, null);
 	tunnel.visible = inTunnel = false;
@@ -146,10 +149,14 @@ function exitTunnel() {
 		}
 	}
 
-	speakerLight = false;
-	speakerAuto = true;
+	ladySpeaker.light.visible = false;
+	ladySpeaker.mode = oldMode;
 
-	ladySpeaker.color = 0xFFFFFFFF;
+	ladySpeaker.main.playAnim('colors', true);
+	ladySpeaker.light.playAnim('colors', true);
+
+	ladySpeaker.main.color = 0xFFFFFFFF;
+	ladySpeaker.light.color = 0xFFFFFFFF;
 }
 
 function enterTunnel() {
@@ -182,11 +189,13 @@ function enterTunnel() {
 		}
 	}
 
-	speakerLight = true;
-	speakerAuto = false;
+	ladySpeaker.light.visible = true;
+	oldMode = ladySpeaker.mode;
+	ladySpeaker.mode = SpeakerMode.NONE;
 
-	ladySpeaker.animation.curAnim.curFrame = speakerLightSpr.animation.curAnim.curFrame = 0;
-	FlxTween.color(ladySpeaker, 0.25, 0xFFFFFFFF, 0xFF000000);
+	ladySpeaker.main.playAnim('off', true);
+
+	FlxTween.color(ladySpeaker.main, 0.25, 0xFFFFFFFF, 0xFF000000);
 }
 
 var lightingColor:FlxColor = 0xFF204C4E;
@@ -239,7 +248,14 @@ function onNoteHit(event) {
 	colorTween?.cancel();
 
 	lightingColor = event.note.strumLine.opponentSide ? 0xFF204C4E : 0xFF4E4720;
-	ladySpeaker.animation.curAnim.curFrame = speakerLightSpr.animation.curAnim.curFrame = event.note.strumLine.opponentSide ? 0 : 2;
+
+	if (event.note.strumLine.opponentSide) {
+		ladySpeaker.light.color = 0xFFFFFFFF;
+		ladySpeaker.light.playAnim('cyan', true);
+	} else {
+		ladySpeaker.light.color = 0xFFF1F471;
+		ladySpeaker.light.playAnim('player', true);
+	}
 
 	final options = {
 		ease: FlxEase.cubeIn,

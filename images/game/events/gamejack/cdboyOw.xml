@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Tex-Packer-EX v0.6.8 https://strawberrysage.github.io/tex-packer-ex
+-->
+<TextureAtlas imagePath="cdboyow.png" width="146" height="161">
+  <SubTexture name="spr_cdboyow_0.png" x="0" y="120"  width="56" height="41" frameX="-13" frameY="-13" frameWidth="82" frameHeight="67"/>
+  <SubTexture name="spr_cdboyow_1.png" x="82" y="0"  width="64" height="50" frameX="-9" frameY="-8" frameWidth="82" frameHeight="67"/>
+  <SubTexture name="spr_cdboyow_2.png" x="0" y="67"  width="75" height="53" frameX="-4" frameY="-7" frameWidth="82" frameHeight="67"/>
+  <SubTexture name="spr_cdboyow_3.png" x="0" y="0"  width="82" height="67" frameX="-0" frameY="-0" frameWidth="82" frameHeight="67"/>
+</TextureAtlas>

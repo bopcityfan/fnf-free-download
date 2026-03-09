@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Tex-Packer-EX v0.6.8 https://strawberrysage.github.io/tex-packer-ex
+-->
+<TextureAtlas imagePath="cdboyHack.png" width="566" height="670">
+  <SubTexture name="spr_cdboyhack_0.png" x="345" y="0"  width="72" height="166" frameX="-29" frameY="-9" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_1.png" x="345" y="166"  width="72" height="165" frameX="-29" frameY="-10" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_10.png" x="91" y="0"  width="80" height="172" frameX="-22" frameY="-4" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_11.png" x="91" y="0"  width="80" height="172" frameX="-22" frameY="-4" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_12.png" x="171" y="0"  width="80" height="172" frameX="-23" frameY="-4" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_13.png" x="0" y="174"  width="80" height="172" frameX="-21" frameY="-4" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_14.png" x="91" y="0"  width="80" height="172" frameX="-22" frameY="-4" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_15.png" x="91" y="0"  width="80" height="172" frameX="-22" frameY="-4" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_16.png" x="251" y="0"  width="94" height="171" frameX="-13" frameY="-5" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_17.png" x="373" y="331"  width="85" height="161" frameX="-19" frameY="-15" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_18.png" x="0" y="0"  width="91" height="174" frameX="-15" frameY="-2" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_19.png" x="0" y="346"  width="78" height="163" frameX="-7" frameY="-13" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_2.png" x="240" y="172"  width="82" height="170" frameX="-20" frameY="-5" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_20.png" x="78" y="346"  width="77" height="162" frameX="-9" frameY="-14" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_21.png" x="417" y="162"  width="71" height="161" frameX="-14" frameY="-15" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_22.png" x="490" y="0"  width="76" height="161" frameX="-9" frameY="-15" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_23.png" x="155" y="346"  width="73" height="162" frameX="-13" frameY="-14" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_24.png" x="490" y="161"  width="74" height="161" frameX="-11" frameY="-15" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_25.png" x="228" y="343"  width="72" height="162" frameX="-14" frameY="-14" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_26.png" x="488" y="322"  width="74" height="161" frameX="-11" frameY="-15" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_27.png" x="146" y="508"  width="74" height="160" frameX="-11" frameY="-16" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_28.png" x="0" y="509"  width="74" height="161" frameX="-11" frameY="-15" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_29.png" x="300" y="342"  width="73" height="162" frameX="-13" frameY="-14" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_3.png" x="160" y="172"  width="80" height="171" frameX="-22" frameY="-4" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_30.png" x="74" y="509"  width="72" height="161" frameX="-14" frameY="-15" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_31.png" x="417" y="0"  width="73" height="162" frameX="-12" frameY="-14" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_4.png" x="80" y="174"  width="80" height="172" frameX="-23" frameY="-4" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_5.png" x="0" y="174"  width="80" height="172" frameX="-21" frameY="-4" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_6.png" x="91" y="0"  width="80" height="172" frameX="-22" frameY="-4" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_7.png" x="91" y="0"  width="80" height="172" frameX="-22" frameY="-4" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_8.png" x="171" y="0"  width="80" height="172" frameX="-23" frameY="-4" frameWidth="116" frameHeight="176"/>
+  <SubTexture name="spr_cdboyhack_9.png" x="0" y="174"  width="80" height="172" frameX="-21" frameY="-4" frameWidth="116" frameHeight="176"/>
+</TextureAtlas>

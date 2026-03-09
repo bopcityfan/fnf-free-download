@@ -24,7 +24,7 @@ function onGamePause(event) {
 				anim: character.animation.curAnim,
 				context: character.lastAnimContext
 			};
-			character.playAnim("paused", true);
+			character.playAnim('paused${character.animSuffix == null ? '' : character.animSuffix}', true);
 
 			new FlxTimer().start(.001, (t:FlxTimer) -> {
 				if (FlxG.state == PlayState.instance)
@@ -55,13 +55,20 @@ function postUpdate(elapsed:Float) {
 }
 
 function beatHit() {
-	for (sl in strumLines)
-		for (character in sl.characters) {
-			if (StringTools.contains(character.curCharacter, 'lady')) return;
-			if (character.danceOnBeat) character.danceOnBeat = false;
+	for (sL in strumLines) {
+		if (sL.data.type == 2) { // ADDITIONAL
+			return;
+		}
+
+		for (character in sL.characters) {
+			if (character.danceOnBeat) {
+				character.danceOnBeat = false;
+			}
+
 			if (["SING", "MISS"].contains(character.lastAnimContext) && character.lastHit + (Conductor.stepCrochet * character.holdTime) < Conductor.songPosition)
 				character.playAnim('idle', true, 'DANCE');
 			else if (character.lastAnimContext == "DANCE")
 				character.playAnim('idle', true, 'DANCE');
 		}
+	}
 }

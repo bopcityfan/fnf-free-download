@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Tex-Packer-EX v0.6.8 https://strawberrysage.github.io/tex-packer-ex
+-->
+<TextureAtlas imagePath="cdboyExplode.png" width="746" height="899">
+  <SubTexture name="spr_cdboyexplode_0.png" x="668" y="444"  width="74" height="165" frameX="-30" frameY="-63" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_1.png" x="668" y="609"  width="74" height="165" frameX="-30" frameY="-63" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_10.png" x="201" y="0"  width="101" height="226" frameX="-19" frameY="-1" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_11.png" x="0" y="0"  width="100" height="227" frameX="-19" frameY="-1" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_12.png" x="335" y="452"  width="102" height="225" frameX="-18" frameY="-1" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_13.png" x="100" y="0"  width="101" height="227" frameX="-19" frameY="-1" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_14.png" x="0" y="227"  width="100" height="226" frameX="-19" frameY="-1" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_15.png" x="100" y="227"  width="103" height="226" frameX="-17" frameY="-1" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_16.png" x="302" y="0"  width="110" height="226" frameX="-10" frameY="-1" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_17.png" x="119" y="679"  width="105" height="218" frameX="-14" frameY="-10" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_18.png" x="635" y="224"  width="109" height="220" frameX="-11" frameY="-7" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_19.png" x="635" y="0"  width="111" height="224" frameX="-9" frameY="-4" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_2.png" x="224" y="678"  width="113" height="218" frameX="-6" frameY="-10" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_20.png" x="522" y="0"  width="113" height="225" frameX="-6" frameY="-2" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_21.png" x="203" y="226"  width="112" height="226" frameX="-8" frameY="-1" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_22.png" x="412" y="0"  width="110" height="226" frameX="-10" frameY="-1" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_23.png" x="315" y="226"  width="113" height="226" frameX="-6" frameY="-1" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_24.png" x="428" y="226"  width="101" height="225" frameX="-19" frameY="-1" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_3.png" x="0" y="679"  width="119" height="220" frameX="-1" frameY="-7" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_4.png" x="551" y="450"  width="117" height="224" frameX="-3" frameY="-4" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_5.png" x="437" y="451"  width="114" height="225" frameX="-5" frameY="-2" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_6.png" x="0" y="453"  width="112" height="226" frameX="-8" frameY="-1" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_7.png" x="112" y="453"  width="110" height="226" frameX="-10" frameY="-1" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_8.png" x="222" y="452"  width="113" height="226" frameX="-6" frameY="-1" frameWidth="120" frameHeight="228"/>
+  <SubTexture name="spr_cdboyexplode_9.png" x="529" y="225"  width="101" height="225" frameX="-19" frameY="-1" frameWidth="120" frameHeight="228"/>
+</TextureAtlas>
